@@ -8,7 +8,7 @@ MIDDLEWARE += [
 ]
 INSTALLED_APPS += ('debug_toolbar', )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
 
 ROLLBAR = {
     'access_token': env('ROLLBAR_TOKEN'),
