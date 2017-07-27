@@ -1,9 +1,16 @@
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = '$)s85_ag&st*qa!f#1%@kif$9py(2c8&k^2iai=4yep-r+g23e'
-DEBUG = True
-ALLOWED_HOSTS = []
-INSTALLED_APPS = [
+from unipath import Path
+import environ
+
+ROOT_DIR = Path(__file__).ancestor(3)
+APPS_DIR = ROOT_DIR.child('apps')
+env = environ.Env(DEBUG=(bool, False),)
+environ.Env.read_env('.env')
+
+SECRET_KEY = env('DJANGO_SECRET_KEY')
+DEBUG = env.bool('DJANGO_DEBUG', default=False)
+
+# Aplicaciones
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -11,6 +18,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles'
 ]
+THIRD_PARTY_APPS = []
+LOCAL_APPS = []
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -24,8 +36,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, '../../templates')]
-        ,
+        'DIRS': [APPS_DIR.child('templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -38,12 +49,12 @@ TEMPLATES = [
     },
 ]
 WSGI_APPLICATION = 'core.wsgi.application'
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': env.db('DATABASE_URL'),
 }
+DATABASES['default']['ATOMIC_REQUESTS'] = True
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -59,8 +70,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 LANGUAGE_CODE = 'es-mx'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Mexico/General'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    str(APPS_DIR.child('static')),
+)
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+MEDIA_ROOT = APPS_DIR.child('media')
+MEDIA_URL = '/media/'
