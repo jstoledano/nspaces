@@ -8,6 +8,10 @@ environ.Env.read_env('.env')
 
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 DEBUG = env.bool('DJANGO_DEBUG', default=False)
+ADMINS = (
+    ("""Javier Sanchez Toledano""", 'js.toledano@me.com'),
+)
+MANAGERS = ADMINS
 
 # Aplicaciones
 DJANGO_APPS = [
@@ -18,8 +22,13 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles'
 ]
-THIRD_PARTY_APPS = []
-LOCAL_APPS = []
+THIRD_PARTY_APPS = [
+    'taggit',
+    'taggit_templatetags2',
+]
+LOCAL_APPS = [
+    'apps.users.config.UsersConfig'
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -86,3 +95,12 @@ STATICFILES_FINDERS = (
 
 MEDIA_ROOT = APPS_DIR.child('media')
 MEDIA_URL = '/media/'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
+ACCOUNT_ADAPTER = 'core.users.adapters.AccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'core.users.adapters.SocialAccountAdapter'
+
+AUTH_USER_MODEL = 'users.User'
