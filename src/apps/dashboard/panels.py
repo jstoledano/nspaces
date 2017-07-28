@@ -58,8 +58,8 @@ class CustomIndexDashboard(Dashboard):
 
         # append a feed module
         self.children.append(modules.Feed(
-            _('Latest Django News'),
-            feed_url='http://www.djangoproject.com/rss/weblog/',
+            _('Preguntas sobre Django en SOes'),
+            feed_url='https://es.stackoverflow.com/feeds/',
             limit=5
         ))
 
