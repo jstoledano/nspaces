@@ -57,6 +57,7 @@ class Category(Trazabilidad):
         unique=True, max_length=60,
         help_text="Se sugiere el texto generado por el título. Debe ser único."
     )
+    icon = models.CharField(max_length=20, blank=True)
     description = models.TextField('Descripción')
     description_html = models.TextField(editable=False, blank=True)
 
