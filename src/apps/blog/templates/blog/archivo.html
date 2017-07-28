@@ -80,7 +80,7 @@
           <li>
             <a href="{% url 'entry_detail' cat=entry.category.slug slug=entry.slug %}"
                itemprop="url" rel="bookmark">
-              {{ entry.title }}
+              <i class="fa fa-{{ entry.category.icon }}"></i> {{ entry.title }}
             </a>
           </li>
           {% endfor %}
