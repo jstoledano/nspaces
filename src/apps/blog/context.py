@@ -48,7 +48,6 @@ def variables(request):
     # ./CASPER
 
     return {
-        # 'AUTOR': AUTHOR,
         'AUTHOR': AUTHOR,
         'SITENAME': SITENAME,
         'SITEURL': SITEURL,

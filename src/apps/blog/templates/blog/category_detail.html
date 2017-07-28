@@ -3,6 +3,8 @@
 {% block scroll %}{% endblock %}
 {% block template_type %}tag-template{% endblock %}
 
+{% block meta_description %}{% if articles_page.number == 1 %}Este es el archivo de la categoría {{ cat|striptags }}{% else %}Esta es la página número {{ page_obj.number }} del archivo del tema {{ cat|striptags }}{% endif %}{% endblock meta_description %}
+
 {% block html_head %}
 <style type="text/css">
   .page-title {
@@ -14,18 +16,16 @@
 {% block title %}{{ cat }} - {{ SITENAME }}{% endblock title %}
 
 {% block header_title %}
-  <h1 class="page-title" itemprop="headline">{{ cat }}</h1>
+  <h1 class="page-title" itemprop="headline"><i class="fa fa-{{ cat.icon }}"></i> {{ cat }}</h1>
   <h2 class="page-description" itemprop="description">{{ cat.description }}</h2>
 {% endblock %}
 
 {% block content %}
 <main id="content" class="content" role="main" itemprop="mainContentOfPage" itemscope="" itemtype="http://schema.org/Blog">
-  <div>
+  <div class="extra-pagination inner">
     {% include 'blog/partials/_pagination.html' %}
   </div>
-
   {% include 'blog/partials/_loop.html' %}
-
   {% include 'blog/partials/_pagination.html' %}
 </main>
 {% endblock content %}

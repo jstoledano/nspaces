@@ -5,6 +5,7 @@
 {% block template_type %}post-template{% endblock %}
 
 {% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock title %}
+{% block meta_description %}{{ article.resumen }}{% endblock meta_description %}
 
 {% block metatwitter %}
   <!-- BEGIN metatwitter -->
@@ -25,7 +26,7 @@
   <!-- BEGIN metafacebook -->
   <meta property="og:site_name" content="{{ SITENAME }} - {{ TAGLINE }}">
   <meta property="og:locale" content="es_LA">
-  <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}">
+  <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}">
   <meta property="og:type" content="article">
   <meta property="og:title" content="{{ article.title|striptags }}">
   <meta property="og:image" content="{% if article.cover %}{{ article.cover }}{% else %}{{ ARTICLE_COVER }}{% endif %}">
@@ -42,6 +43,7 @@
   <link rel="canonical" href="{{ article.get_absolute_url }}">
   <!-- END metagoogle -->
 {%endblock metagoogle%}
+
 {% block metadcterms %}
   <meta name="dcterms.title" content="{{ article.title|striptags }}">
   <meta name="dcterms.description" content="{{ article.resumen }}">
@@ -70,9 +72,9 @@
     "datePublished": "{{ article.pub_date|date:"c" }}",
     "dateModified": "{{ article.modificado|date:"c" }}",
     {% if article.cover %}
-    "image": "{{ article.cover }}",
+      "image": "{{ article.cover }}",
     {% else %}
-    "image": "{{ ARTICLE_COVER }}",
+      "image": "{{ ARTICLE_COVER }}",
     {% endif %}
     "keywords": "{{ article.category.slug }}{% for tag in article.tags.all %} tag-{{ tag.slug }}{% endfor %}",
     "description": "{{ article.resumen }}"
@@ -115,6 +117,10 @@
   .footnote img {
     all: initial;
   }
+
+{#  .post-footer .author, .post-footer .share {#}
+{#    margin-bottom: 2em;#}
+{#  }#}
 
   .post-footer .share a {
     margin: 0;
@@ -204,7 +210,14 @@
 
 {% block header_title %}
   <h1 class="page-title" itemprop="headline">{{ article.title }}</h1>
-  <h2 class="page-description" itemprop="description" style="text-shadow: 1px 1px #000;">Archivada en <i class="fa fa-folder-open-o"></i> <a style="color=#fff; text-decoration: none; text-shadow: 1px 1px #ddd;" href="{{ article.category.get_absolute_url }}"><strong>{{ article.category }}</strong></a></h2>
+  <h2
+    class="page-description"
+    itemprop="description">
+    Archivada en <i class="fa fa-{{ article.category.icon }}"></i>
+    <a style="color: #fff; text-decoration: none;" href="{{ article.category.get_absolute_url }}">
+      <strong>{{ article.category }}</strong>
+    </a>
+  </h2>
 {% endblock header_title %}
 
 {% block content %}
@@ -213,8 +226,19 @@
     <header class="post-header">
       <h1 class="post-title" itemprop="headline">{{ article.title }}</h1>
       <section class="post-meta">
-        <i class="fa fa-calendar"></i> <time class="post-date" itemprop="datePublished" datetime="{{ article.pub_date|date:"c" }}">{{ article.pub_date }}</time>
-        etiquetado como {% for tag in article.tags.all %}<i class="fa fa-tag"></i> <a href="{% url 'tag_list' tag.slug %}">{{ tag }}{% if not loop.last %}, {% endif %}</a>{% endfor %}
+        <i class="fa fa-calendar"></i>
+        <time
+          class="post-date"
+          itemprop="datePublished"
+          datetime="{{ article.pub_date|date:"c" }}">
+          {{ article.pub_date }}
+        </time>
+        etiquetado como {% for tag in article.tags.all %}
+          <i class="fa fa-tag"></i>
+          <a href="{% url 'tag_list' tag.slug %}">{{ tag }}
+            {% if not loop.last %}, {% endif %}
+          </a>
+        {% endfor %}
       </section>
     </header>
     <section class="post-content">
@@ -227,7 +251,7 @@
       </figure>
       <section class="author">
         <h4>
-          {{ article.autor.first_name }} {{ article.autor.last_name }}
+          {{ article.autor.name }}
         </h4>
         <p>{% if article.author_bio %}{{ article.author_bio }}{% else %}{{ AUTHOR_BIO }}{% endif %}</p>
         <div class="author-meta">

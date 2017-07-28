@@ -1,8 +1,15 @@
 {% extends 'blog/base.html' %}
 {% load taggit_templatetags2_tags %}
 
+{% block title %}Archivo Toledano - {{ SITENAME }}{% endblock title %}
+{% block meta_description %}En esta página se encuentra listado todo el contenido de este sitio para su fácil consulta{% endblock meta_description %}
+
+{% block header_title %}
+  <h1 class="page-title" itemprop="headline"><i class="fa fa-sitemap"></i> Archivo</h1>
+  <h2 class="page-description" itemprop="description">El histórico de los contenidos del sitio</h2>
+{% endblock header_title %}
+
 {% block html_head %}
-  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/unsemantic/1.0.3/unsemantic-grid-responsive.min.css">
   <style type="text/css">
     .page-title {
       text-shadow: 1px 1px #000;
@@ -43,13 +50,21 @@
   <article class="post">
     <div class="grid-container">
 
-      <div class="grid-40">
-        <h2>Categorías</h2>
+      <div id="cats">
+        <h2><i class="fa fa-folder-open"></i> Lista de Temas</h2>
         <ul>{% for cat in cats %}
-          <li><a href="{% url 'cat_detail' slug=cat.slug %}">{{ cat }}</a></li>
+          <li>
+            <i class="fa fa-{{ cat.icon }}"></i>
+            <a href="{% url 'cat_detail' slug=cat.slug %}">
+              <strong>{{ cat }}</strong>
+            </a>
+            - {{ cat.description }}
+          </li>
         {% endfor %}</ul>
-        <hr>
-        <h2>Etiquetas</h2>
+      </div>
+
+      <div id="nube">
+        <h2><i class="fa fa-tags"></i> Nube de etiquetas</h2>
         <ul class="tagcloud">
           {% get_tagcloud as tags %}
           {% for tag in tags %}
@@ -58,8 +73,8 @@
         </ul>
       </div>
 
-      <div class="grid-60">
-        <h2>Artículos</h2>
+      <div id="articles">
+        <h2><i class="fa fa-newspaper-o"></i> Artículos</h2>
         <ul>
           {% for entry in entries %}
           <li>

@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+{% block header_type %}tag-head{% endblock %}
+{% block scroll %}{% endblock %}
+{% block template_type %}tag-template{% endblock %}
+
+{% block html_head %}
+<style type="text/css">
+  .page-title {
+    text-shadow: 1px 1px #000;
+  }
+</style>
+{% endblock %}
+
+{% block title %}Lista de temas en el sitio - {{ SITENAME }}{% endblock title %}
+{% block meta_description %}En esta página se encuentran listados los temas que tratamos en este sitio.{% endblock meta_description %}
+
+{% block header_title %}
+  <h1 class="page-title" itemprop="headline"><i class="fa fa-folder-open"></i> Lista de temas</h1>
+  <h2 class="page-description" itemprop="description">Categorías en {{ SITENAME }}</h2>
+{% endblock %}
+
+{% block content %}
+<main id="content" class="content" role="main" itemprop="mainContentOfPage" itemscope="" itemtype="http://schema.org/Blog">
+  <article class="post">
+    <ul>
+      {% for cat in cats %}
+      <li>
+        <i class="fa fa-{{ cat.icon }}"></i>
+        <a href="{% url 'cat_detail' slug=cat.slug %}">
+          <strong>{{ cat }}</strong>
+        </a>
+        - {{ cat.description }}
+      </li>
+      {% endfor %}
+    </ul>
+  </article>
+</main>
+{% endblock content %}
