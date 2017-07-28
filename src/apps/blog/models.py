@@ -17,25 +17,43 @@ from django.db import models
 import markdown
 from taggit.managers import TaggableManager
 
-MD_EXT = {
-    'extension_configs': {
-        'markdown.extensions.codehilite': {},
-        'markdown.extensions.meta': {},
-        'markdown.extensions.abbr': {},
-        'markdown.extensions.attr_list': {},
-        'markdown.extensions.def_list': {},
-        'markdown.extensions.fenced_code': {},
-        'markdown.extensions.footnotes': {},
-        'markdown.extensions.tables': {},
-        'markdown.extensions.smart_strong': {},
-        'markdown.extensions.admonition': {},
-        'markdown.extensions.headerid': {},
-        'markdown.extensions.sane_lists': {},
-        'markdown.extensions.extra': {},
-        'markdown.extensions.smarty': {},
-        'markdown.extensions.toc': {},
-    }
-}
+# MD_EXT = {
+#     'extension_configs': {
+#         'markdown.extensions.codehilite': {},
+#         'markdown.extensions.meta': {},
+#         'markdown.extensions.abbr': {},
+#         'markdown.extensions.attr_list': {},
+#         'markdown.extensions.def_list': {},
+#         'markdown.extensions.fenced_code': {},
+#         'markdown.extensions.footnotes': {},
+#         'markdown.extensions.tables': {},
+#         'markdown.extensions.smart_strong': {},
+#         'markdown.extensions.admonition': {},
+#         'markdown.extensions.headerid': {},
+#         'markdown.extensions.sane_lists': {},
+#         'markdown.extensions.extra': {},
+#         'markdown.extensions.smarty': {},
+#         'markdown.extensions.toc': {},
+#     }
+# }
+
+MD_EXT = [
+    'markdown.extensions.codehilite',
+    'markdown.extensions.meta',
+    'markdown.extensions.abbr',
+    'markdown.extensions.attr_list',
+    'markdown.extensions.def_list',
+    'markdown.extensions.fenced_code',
+    'markdown.extensions.footnotes',
+    'markdown.extensions.tables',
+    'markdown.extensions.smart_strong',
+    'markdown.extensions.admonition',
+    'markdown.extensions.headerid',
+    'markdown.extensions.sane_lists',
+    'markdown.extensions.extra',
+    'markdown.extensions.smarty',
+    'markdown.extensions.toc',
+]
 
 
 class Trazabilidad(models.Model):
@@ -43,7 +61,7 @@ class Trazabilidad(models.Model):
     Una clase abstracta que sirve de base para modelos.
     Actualiza automáticamente los campos ``creado`` y ``modificado``.
     """
-    idx = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    idx = models.UUIDField(default=uuid.uuid4, editable=False)
     creado = models.DateTimeField(auto_now_add=True)
     modificado = models.DateTimeField(auto_now=True)
 
@@ -135,9 +153,6 @@ class Entry(Trazabilidad):
         ordering = ['-id', '-pub_date']
         unique_together = ('slug', 'pub_date')
         get_latest_by = 'pub_date'
-
-    def __unicode__(self):
-        return self.title
 
     def __str__(self):
         return self.title

@@ -35,7 +35,8 @@ THIRD_PARTY_APPS = [
     'taggit_templatetags2',
 ]
 LOCAL_APPS = [
-    'apps.profiles.config.UsersConfig'
+    'apps.profiles.config.UsersConfig',
+    'apps.blog.config.BlogConfig'
 ]
 
 INSTALLED_APPS = ADMIN_TOOLS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
