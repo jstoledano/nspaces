@@ -1,0 +1,15 @@
+{% comment %}
+    
+  POST - PROFILE BOTTOM
+  - User configuration of this file is not required. 
+
+{% endcomment %}
+
+<div class="postprofile">
+  <img src="{{ PROFILE_IMAGE_URL }}" class="author" alt="{{ article.autor }}">
+  <div class="info">
+    <h4>{{ article.autor.get_full_name }}</h4>
+    <p>{{ DEFAULT_METADATA.about_author }}</p>
+    {% include "partials/_social_bottom.html" %}
+  </div>
+</div>

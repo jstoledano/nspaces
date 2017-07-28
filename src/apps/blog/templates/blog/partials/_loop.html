@@ -1,0 +1,20 @@
+{% for article in object_list %}
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header" itemprop="headline">
+    <h2 class="post-title">
+      <a href="{% url 'entry_detail' cat=article.category.slug slug=article.slug %}" itemprop="url" rel="bookmark">
+        {{ article.title|striptags }}
+      </a>
+    </h2>
+  </header>
+  <section class="post-excerpt">
+    {{ article.resumen|safe|escape }}
+  </section>
+  <footer class="post-meta">
+    Publicado en la categoría <i class="fa fa-folder-open-o"></i> <strong><a href="{% url 'cat_detail' slug=article.category.slug %}">{{ article.category }}</a></strong>
+    <br>
+    <strong>Etiquetas:</strong>  {% for tag in article.tags.all %}<i class="fa fa-tag"></i> <a href="{% url 'tag_list' tag.slug %}">{{ tag }}</a> {% endfor %}
+    <time class="post-date" itemprop="datePublished" datetime="{{ article.pub_date|date:'c' }}"><i class="fa fa-calendar"></i> {{ article.pub_date }}</time>
+  </footer>
+</article>
+{% endfor %}

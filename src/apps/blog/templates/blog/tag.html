@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+{% block header_type %}tag-head{% endblock %}
+{% block scroll %}{% endblock %}
+{% block template_type %}tag-template{% endblock %}
+
+{% block html_head %}
+<style type="text/css">
+  .page-title {
+    text-shadow: 1px 1px #000;
+  }
+</style>
+{% endblock html_head %}
+
+{% block title %}Etiqueta {{ t.name }} - {{ SITENAME }}{% endblock title %}
+
+{% block header_title %}
+  <h1 class="page-title" itemprop="headline">{{ t.name }}</h1>
+  <h2 class="page-description" itemprop="description">Artículos etiquetados con <i class="fa fa-tag"></i> {{ t }}</h2>
+{% endblock %}
+
+{% block content %}
+<main id="content" class="content" role="main" itemprop="mainContentOfPage" itemscope="" itemtype="http://schema.org/Blog">
+  <div>
+    {% include 'blog/partials/_pagination.html' %}
+  </div>
+
+  {% include 'blog/partials/_loop.html' %}
+
+  {% include 'blog/partials/_pagination.html' %}
+</main>
+{% endblock content %}

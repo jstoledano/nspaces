@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+
+{% block html_head %}
+  <style media="screen">
+    .post-head.main-header {
+      height: 100vh !important;
+    }
+  </style>
+{% endblock html_head %}
+
+{% block scroll %}
+{% endblock scroll %}
+
+{% block title %}Error 404 - {{ SITENAME }}{% endblock title %}
+
+{% block header_title %}
+  <h1 class="page-title" itemprop="headline">Error 404</h1>
+  <h2 class="page-description" itemprop="description">Recurso no encontrado</h2>
+  <p></p>
+  <p style="color: white">
+    Visita la <a style="color: whitesmoke" href="{% url 'index' %}"><i class="fa fa-home"></i> <strong>Portada</strong></a> o consulta el <a style="color: whitesmoke" href="{% url 'archivo' %}"><i class="fa fa-sitemap"></i> <strong>mapa del sitio</strong></a>
+  </p>
+  {% include 'blog/partials/_search.html' %}
+{% endblock %}

@@ -1,0 +1,50 @@
+{% load staticfiles %}
+  <link rel="publisher" href="{{ PUBLISHER }}">
+  <link rel="apple-touch-startup-image" href="{% static '/images/logo.png' %}">
+  <link type="text/plain" rel="socialmedia" href="{{ SITEURL }}/socialmedia.txt">
+  <link rel="dns-prefetch" href="{{ SITEURL }}"/>
+  <link rel="dns-prefetch" href="//www.gstatic.com"/>
+  <link rel="dns-prefetch" href="//fonts.gstatic.com"/>
+  <link rel="dns-prefetch" href="//fonts.googleapis.com"/>
+  <link rel="dns-prefetch" href="//accounts.google.com"/>
+  <link rel="dns-prefetch" href="//ssl.google-analytics.com"/>
+  <link rel="dns-prefetch" href="//www.google-analytics.com"/>
+  <link rel="dns-prefetch" href="//googleads.g.doubleclick.net"/>
+  <link rel="dns-prefetch" href="//pagead2.googlesyndication.com"/>
+  <link rel="dns-prefetch" href="//twemoji.maxcdn.com"/>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="application-name" content="{{ SITENAME }}"/>
+  <meta name="msapplication-starturl" content="http:{{ SITEURL }}"/>
+  <meta name="msapplication-tooltip" content="{{ TAG_LINE }}"/>
+  <meta name="msapplication-window" content="width=1024;height=768"/>
+  <meta name="msapplication-task" content="name={{ SITENAME }};action-uri=http:{{ SITEURL }};icon-uri={{ STATICURL }}/theme/images/favicon.ico"/>
+  <meta name="msapplication-TileImage" content="{{ STATICURL }}/theme/images/apple-touch-icon-144x144.png"/>
+  <meta name="msapplication-TileColor" content="#1F1F21"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="imagetoolbar" content="no">
+  <meta http-equiv="pragma" content="cache">
+  <meta http-equiv="cache-control" content="cache">
+  <meta http-equiv="vary" content="content-language">
+  <meta http-equiv="Cache-control" content="max-age=2592000, public">
+  <meta http-equiv="content-style-type" content="text/css">
+  <meta name="application-name" content="{{ SITENAME }}">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  {% if GOOGLE_SV %}<meta name="google-site-verification" content="{{ GOOGLE_SV }}">{% endif %}
+  {% if ALEXA %}<meta name="alexaVerifyID" content="{{ ALEXA }}"/>{% endif %}
+  {% if MY_WOT %}<meta name="wot-verification" content="{{ MY_WOT }}"/>{% endif %}
+  {% if MSVALIDATE %}<meta name="msvalidate.01" content="{{ MSVALIDATE }}" />{% endif %}
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="medium" content="mult">
+  <meta name="adblock" content="disable">
+  <meta name="rating" content="General">
+  <meta name="resource-type" content="document">
+  <meta name="revisit-after" content="1 days">
+  <meta name="revisit" content="1">
+  <meta name="robots" content="index,follow">
+  <meta name="no-email-collection" content="http://www.unspam.com/noemailcollection/">

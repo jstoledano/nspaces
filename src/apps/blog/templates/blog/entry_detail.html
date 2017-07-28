@@ -1,0 +1,267 @@
+{% extends 'blog/base.html' %}
+
+{% block header_image %}{% if article.cover %}{{ article.cover }}{% else %}{{ COVER_IMG }}{% endif %}{% endblock %}
+{% block scroll %}{% endblock %}
+{% block template_type %}post-template{% endblock %}
+
+{% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock title %}
+
+{% block metatwitter %}
+  <!-- BEGIN metatwitter -->
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:locale:alternate" content="es">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}">
+  <meta name="twitter:domain" content="{{ DOMAIN }}">
+  <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}">
+  <meta name="twitter:url" content="{{ article.get_absolute_url }}">
+  <meta name="twitter:title" content="{{ article.title|striptags }}">
+  <meta name="twitter:description" content="{{ article.resumen }}">
+  <meta name="twitter:image" content="{% if article.cover %}{{ article.cover }}{% else %}{{ ARTICLE_COVER }}{% endif %}">
+  <!-- END metatwitter -->
+{% endblock metatwitter %}
+
+{% block metafacebook %}
+  <!-- BEGIN metafacebook -->
+  <meta property="og:site_name" content="{{ SITENAME }} - {{ TAGLINE }}">
+  <meta property="og:locale" content="es_LA">
+  <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ article.title|striptags }}">
+  <meta property="og:image" content="{% if article.cover %}{{ article.cover }}{% else %}{{ ARTICLE_COVER }}{% endif %}">
+  <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+  <meta property="og:description" content="{{ article.resumen }}">
+  <meta property="og:url" content="{{ article.get_absolute_url }}">
+  <!-- END metafacebook -->
+{% endblock metafacebook %}
+
+{%block metagoogle%}
+  <!-- BEGIN metagoogle -->
+  <link rel="canonical" href="{{ article.get_absolute_url }}">
+  <!-- END metagoogle -->
+{%endblock metagoogle%}
+{% block metadcterms %}
+  <meta name="dcterms.title" content="{{ article.title|striptags }}">
+  <meta name="dcterms.description" content="{{ article.resumen }}">
+  <meta name="dcterms.language" content="es">
+  <meta name="dcterms.type" content="post">
+  <meta name="dcterms.source" content="{{ SITEURL }}/{{ article.get_absolute_url }}">
+  <meta name="dcterms.publisher" content="{{ TWITTER_USERNAME }}">
+{% endblock metadcterms %}
+
+{% block html_head %}
+<link rel="stylesheet" href="http://media.toledano.org/assets/css/grid12_1.1.css">
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Yo, Toledano",
+    "author": {
+      "@type": "Person",
+      "name": "{{ AUTHOR }}",
+      "image": "{{ PROFILE_IMAGE_URL }}",
+      "url": "{{ SITEURL }}",
+      "description": "{{ article.about_author|striptags }}"
+    },
+    "headline": "{{ article.title|striptags  }}",
+    "url": "{{ article.get_absolute_url }}",
+    "datePublished": "{{ article.pub_date|date:"c" }}",
+    "dateModified": "{{ article.modificado|date:"c" }}",
+    {% if article.cover %}
+    "image": "{{ article.cover }}",
+    {% else %}
+    "image": "{{ ARTICLE_COVER }}",
+    {% endif %}
+    "keywords": "{{ article.category.slug }}{% for tag in article.tags.all %} tag-{{ tag.slug }}{% endfor %}",
+    "description": "{{ article.resumen }}"
+  }
+</script>
+<style media="screen">
+  {% if article.featured %}
+    .post-head.main-header {
+      height: 100vh !important;
+    }
+  {% endif %}
+  pre {
+    word-wrap: normal !important;
+  }
+  .codehilite code, .codehilite pre {
+    line-height: 1.1em !important;
+  }
+  .page-title {
+    text-shadow: 1px 1px #000;
+  }
+  .xeMusicPlayer {
+    height: 150px !important;
+  }
+  .xeMusicPlayer .xeTitleBy {
+    line-height: 20px !important;
+  }
+  .xeMusicPlayer .xeCover > img {
+    height: 80px;
+  }
+  .read-next-story.prev .post:before {
+    content: "Selección del editor" !important;
+  }
+  .read-next-story .post:before {
+    content: "Siguiente artículo" !important;
+  }
+  .footnote {
+    font-size: 0.8em;
+    line-height: 1em;
+  }
+  .footnote img {
+    all: initial;
+  }
+
+  .post-footer .share a {
+    margin: 0;
+  }
+
+  .post-footer .share  a:hover .twitter {
+    color: #55acee;
+  }
+
+  article section .referencia {
+    position: relative;
+    padding-bottom: 30px !important;
+  }
+  article section img {
+    padding: 0 !important;
+  }
+  article section .referencia .reference {
+    position: absolute;
+    top: 0;
+    left: -175px;
+    width: 150px;
+    padding: 20px 0 10px;
+    text-align: right;
+    border-top: 1px solid #dcd8d5;
+    border-bottom: 1px solid #dcd8d5;
+  }
+  @media screen and (max-width: 1140px) {
+    article section .referencia {
+      padding-bottom: 50px;
+    }
+    article section .referencia .reference {
+      position: static;
+      width: 100%;
+      padding: 10px 0;
+      border-top: 0;
+    }
+  }
+  article section .referencia strong {
+    font: 600 14px 'Open Sans', Serif;
+  }
+  article section .referencia p {
+    font: 400 12px 'Open Sans', Serif;
+    line-height: 24px;
+    margin: 10px 0;
+  }
+  article section .referencia img:first-child,
+  article section .referencia pre:first-child {
+    margin: 0;
+  }
+  .xeMusicPlayer .xeMusicHeader > .xeMusicHeaderText p {
+    line-height: 1.4em !important;
+  }
+
+  .admonition {
+    color:#555;
+    border-radius:10px;
+    padding:10px 10px 10px 36px;
+    margin:10px;
+    font-size: 1.6rem;
+  }
+  .admonition p {
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  .admonition .admonition-title {
+    font-weight: bolder;
+    font-variant: small-caps;
+  }
+  .error {
+    background:#ffecec;
+    border:1px solid #f5aca6;
+  }
+  .success {
+    background:#e9ffd9;
+    border:1px solid #a6ca8a;
+  }
+  .warning {
+    background:#fff8c4;
+    border:1px solid #f2c779;
+  }
+  .notice {
+    background:#e3f7fc;
+    border:1px solid #8ed9f6;
+  }
+</style>
+{% endblock html_head %}
+
+{% block header_title %}
+  <h1 class="page-title" itemprop="headline">{{ article.title }}</h1>
+  <h2 class="page-description" itemprop="description" style="text-shadow: 1px 1px #000;">Archivada en <i class="fa fa-folder-open-o"></i> <a style="color=#fff; text-decoration: none; text-shadow: 1px 1px #ddd;" href="{{ article.category.get_absolute_url }}"><strong>{{ article.category }}</strong></a></h2>
+{% endblock header_title %}
+
+{% block content %}
+<main id="content" class="content" role="main">
+  <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="headline">{{ article.title }}</h1>
+      <section class="post-meta">
+        <i class="fa fa-calendar"></i> <time class="post-date" itemprop="datePublished" datetime="{{ article.pub_date|date:"c" }}">{{ article.pub_date }}</time>
+        etiquetado como {% for tag in article.tags.all %}<i class="fa fa-tag"></i> <a href="{% url 'tag_list' tag.slug %}">{{ tag }}{% if not loop.last %}, {% endif %}</a>{% endfor %}
+      </section>
+    </header>
+    <section class="post-content">
+      {{ article.body_html|safe }}
+      {{ article.extend_html|safe }}
+    </section>
+    <footer class="post-footer">
+      <figure class="author-image">
+        <a class="img" href="{{ SITEURL }}" style="background-image: url('{{ PROFILE_IMAGE_URL }}')"><span class="hidden">{{ article.autor }}'s Picture</span></a>
+      </figure>
+      <section class="author">
+        <h4>
+          {{ article.autor.first_name }} {{ article.autor.last_name }}
+        </h4>
+        <p>{% if article.author_bio %}{{ article.author_bio }}{% else %}{{ AUTHOR_BIO }}{% endif %}</p>
+        <div class="author-meta">
+          <i class="fa fa-map-marker"></i>
+          {{ AUTHOR_LOCATION }}
+        </div>
+      </section>
+      <section class="share">
+        <h4>Comparte este artículo</h4>
+        <a class="twitter" href="https://twitter.com/share?text={{ article.title | urlencode | truncatechars:60 }}{{ ' via @' | urlencode }}{{ TWITTER_USERNAME }}&amp;url={{ SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-twitter fa-stack-1x fa-inverse" style="color: #55acee;"></i>
+          </span>
+        </a>
+        <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-facebook fa-stack-1x fa-inverse" style="color: #3b5998;"></i>
+          </span>
+        </a>
+        <a class="google-plus" href="https://plus.google.com/share?url={{ SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-google-plus fa-stack-1x fa-inverse" style="color: #dd4b39;"></i>
+          </span>
+        </a>
+      </section>
+      {% include 'blog/partials/_search.html' %}
+      {% if article.enable_comments %}
+        {% include 'blog/partials/_comments.html' %}
+      {% endif %}
+    </footer>
+  </article>
+</main>
+{% include 'blog/partials/_vecinos.html' %}
+{% endblock content %}

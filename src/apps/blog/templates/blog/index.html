@@ -1,0 +1,34 @@
+{% extends 'blog/base.html' %}
+
+{% block html_head %}
+  {% if page_obj.number == 1 %}
+    <style media="screen">
+      .post-head.main-header {
+        height: 100vh !important;
+      }
+    </style>
+  {% endif %}
+{% endblock html_head %}
+
+
+{% block scroll %}
+  {% if page_obj.number == 1 %}
+    <a class="scroll-down" href="#content">
+      <span class="hidden">Scroll Down</span>
+      <i class="fa fa-chevron-left"></i>
+    </a>
+  {% endif %}
+{% endblock scroll %}
+
+{% block header_type %}{% endblock %}
+
+{% block content %}
+<main id="content" class="content" role="main" itemprop="mainContentOfPage" itemscope="" itemtype="http://schema.org/Blog">
+  <div>
+    {% include 'blog/partials/_pagination.html' %}
+  </div>
+  {% include 'blog/partials/_loop.html' %}
+  {% include 'blog/partials/_search.html' %}
+  {% include 'blog/partials/_pagination.html' %}
+</main>
+{% endblock content %}
