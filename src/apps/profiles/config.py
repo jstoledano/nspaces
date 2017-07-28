@@ -2,8 +2,8 @@ from django.apps import AppConfig
 
 
 class UsersConfig(AppConfig):
-    name = 'apps.users'
-    verbose_name = "Users"
+    name = 'apps.profiles'
+    verbose_name = 'Usuarios y Perfiles'
 
     def ready(self):
         """Sobrepone en:
