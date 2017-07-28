@@ -17,26 +17,6 @@ from django.db import models
 import markdown
 from taggit.managers import TaggableManager
 
-# MD_EXT = {
-#     'extension_configs': {
-#         'markdown.extensions.codehilite': {},
-#         'markdown.extensions.meta': {},
-#         'markdown.extensions.abbr': {},
-#         'markdown.extensions.attr_list': {},
-#         'markdown.extensions.def_list': {},
-#         'markdown.extensions.fenced_code': {},
-#         'markdown.extensions.footnotes': {},
-#         'markdown.extensions.tables': {},
-#         'markdown.extensions.smart_strong': {},
-#         'markdown.extensions.admonition': {},
-#         'markdown.extensions.headerid': {},
-#         'markdown.extensions.sane_lists': {},
-#         'markdown.extensions.extra': {},
-#         'markdown.extensions.smarty': {},
-#         'markdown.extensions.toc': {},
-#     }
-# }
-
 MD_EXT = [
     'markdown.extensions.codehilite',
     'markdown.extensions.meta',
