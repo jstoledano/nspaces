@@ -6,11 +6,18 @@
   </a>
   <ul role="menubar">
     <li {% if request.path == '/' %}class="nav-current"{% endif %} role="presentation">
-      <a  href="{% url "index" %}" title="{{ SITENAME }}" itemprop="name" itemprop="significantLink">Inicio</a>
+      <a href="{% url "index" %}"
+         title="{{ SITENAME }}"
+         itemprop="name"
+         itemprop="significantLink"><i class="fa fa-home"></i> Inicio</a>
     </li>
     {% for cat in TEMAS %}
-      <li class="nav-{{ cat.slug }} {% current request cat.slug %}" role="presentation"><a href="{% url 'cat_detail' slug=cat.slug %}">{{ cat.title }}</a>
+      <li class="nav-{{ cat.slug }} {% current request cat.slug %}" role="presentation">
+        <a href="{% url 'cat_detail' slug=cat.slug %}">
+          <i class="fa fa-{{ cat.icon }}"></i> {{ cat.title }}
+        </a>
     {% endfor %}
-    <li class="{% current request 'archivo' %}" role="presentation"><a href="{% url 'archivo' %}">Archivo</a></li>
+    <li class="{% current request 'archivo' %}" role="presentation">
+      <a href="{% url 'archivo' %}"><i class="fa fa-sitemap"></i> Archivo</a></li>
   </ul>
 </nav>

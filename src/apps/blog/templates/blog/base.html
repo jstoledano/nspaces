@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-mx">
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{{ SITENAME }}  - {{ TAGLINE }}{% endblock title %}</title>
@@ -22,9 +22,9 @@
     {% block metadcterms  %}{% endblock metadcterms  %}
     {% block html_head %}{% endblock %}
   </head>
-<body class="{% block template_type %}home-template{% endblock %} nav-closed" itemscope itemtype="http://schema.org/WebPage">
-  {% include "blog/partials/_metaweb.html" %}
-  {% include 'blog/partials/_navigation.html' %}
+  <body class="{% block template_type %}home-template{% endblock %} nav-closed" itemscope itemtype="http://schema.org/WebPage">
+    {% include "blog/partials/_metaweb.html" %}
+    {% include 'blog/partials/_navigation.html' %}
     <div class="site-wrapper">
       <header class="main-header post-head" style="background-image: url('{% block header_image %}{{ COVER_IMG }}{% endblock %}');" itemscope itemtype="http://schema.org/WPHeader">
         <nav class="main-nav overlay clearfix">
@@ -46,7 +46,7 @@
         </div>
         {% block scroll %}
           <a class="scroll-down" href="#content">
-            <span class="hidden">Scroll Down</span>
+            <span class="hidden">Bajar</span>
             <i class="fa fa-chevron-left"></i>
           </a>
         {% endblock scroll %}

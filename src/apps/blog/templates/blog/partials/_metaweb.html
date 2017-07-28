@@ -1,7 +1,7 @@
 {% if article %}
   <meta itemprop="name" content="{{ article.title|striptags }}">
   <meta itemprop="url" content="{{ SITEURL }}/{{ article.url }}">
-  <meta itemprop="headline" content="{{ article.title|striptags }} || {{ SITENAME }} || {{ TAG_LINE }}">
+  <meta itemprop="headline" content="{{ article.title|striptags }} || {{ SITENAME }} || {{ TAGLINE }}">
   <meta itemprop="description about" content="{% if article.summary %}{{ article.summary|striptags }}{% else %}{{ article.content|striptags|truncatechars:260 }}{% endif %}">
   <meta itemprop="keywords" content="{% if article.category %} {{ article.category.slug }}{% endif %}{% for tag in article.tags.all %} {{ tag.slug }}{% endfor %}">
   <meta itemprop="primaryImageOfPage" content="{% if article.cover %}{{ article.cover }}{% else %}{{ ARTICLE_COVER }}{% endif %}">
@@ -9,8 +9,8 @@
 {% else %}
   <meta itemprop="name" content="{{ SITENAME }}">
   <meta itemprop="url" content="{{ SITEURL }}">
-  <meta itemprop="headline" content="{{ SITENAME }} || {{ TAG_LINE }}">
-  <meta itemprop="description about" content="{{ SITE_DESCRIPTION }}">
+  <meta itemprop="headline" content="{{ SITENAME }} || {{ TAGLINE }}">
+  <meta itemprop="description about" content="{{ TAGLINE }}">
   <meta itemprop="keywords" content="gnu, linux, software libre, código abierto, tecnología">
   <meta itemprop="primaryImageOfPage" content="{{ ARTICLE_COVER }}">
   <meta itemprop="inLanguage" content="es">

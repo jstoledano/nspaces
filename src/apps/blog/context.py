@@ -9,8 +9,7 @@ from apps.blog.models import Category
 __author__ = 'toledano'
 
 
-def config(request):
-
+def variables(request):
     TEMAS = Category.objects.all()
 
     AUTHOR = u'Javier Sanchez Toledano'
@@ -44,22 +43,17 @@ def config(request):
     AUTHOR_PIC_URL = PROFILE_IMAGE_URL
     AUTHOR_BIO = DEFAULT_METADATA['about_author']
     AUTHOR_LOCATION = 'Tlaxcala, México'
-    SITE_DESCRIPTION = TAGLINE
-    SITE_LOGO = SITELOGO
-    DEFAULT_HEADER_IMAGE = COVER_IMG
-    ARCHIVE_HEADER_IMAGE = ARTICLE_COVER
     VECINO_ANTERIOR = '//media.toledano.org/casper/img/anterior.jpg'
     VECINO_SIGUIENTE = '//media.toledano.org/casper/img/siguiente.jpg'
     # ./CASPER
 
     return {
-        'AUTOR': AUTHOR,
+        # 'AUTOR': AUTHOR,
         'AUTHOR': AUTHOR,
         'SITENAME': SITENAME,
         'SITEURL': SITEURL,
         'STATICURL': STATICURL,
         'SITELOGO': SITELOGO,
-        'TAG_LINE': TAGLINE,
         'TAGLINE': TAGLINE,
         'DISQUS_SITENAME': DISQUS_SITENAME,
         'PROFILE_IMAGE_URL': PROFILE_IMAGE_URL,
@@ -90,10 +84,10 @@ def config(request):
         'AUTHOR_PIC_URL': AUTHOR_PIC_URL,
         'AUTHOR_BIO': AUTHOR_BIO,
         'AUTHOR_LOCATION': AUTHOR_LOCATION,
-        'SITE_DESCRIPTION': SITE_DESCRIPTION,
-        'SITE_LOGO': SITE_LOGO,
-        'DEFAULT_HEADER_IMAGE': DEFAULT_HEADER_IMAGE,
-        'ARCHIVE_HEADER_IMAGE': ARCHIVE_HEADER_IMAGE,
+        'SITE_DESCRIPTION': TAGLINE,
+        'SITE_LOGO': SITELOGO,
+        'DEFAULT_HEADER_IMAGE': COVER_IMG,
+        'ARCHIVE_HEADER_IMAGE': ARTICLE_COVER,
         'VECINO_ANTERIOR': VECINO_ANTERIOR,
         'VECINO_SIGUIENTE': VECINO_SIGUIENTE
     }
