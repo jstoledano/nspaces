@@ -8,6 +8,7 @@ MIDDLEWARE += [
 ]
 INSTALLED_APPS += ('debug_toolbar', )
 
+INTERNAL_IPS = ['127.0.0.1', ]
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
 
 ROLLBAR = {
