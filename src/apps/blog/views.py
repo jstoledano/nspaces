@@ -92,7 +92,6 @@ class TagList(ListView):
     def get_context_data(self, **kwargs):
         from taggit.models import Tag
         ctx = super(TagList, self).get_context_data(**kwargs)
-        # ctx['t'] = Tag.objects.get(slug=self.kwargs['slug'])
         ctx['t'] = get_object_or_404(Tag, slug=self.kwargs['slug'])
         return ctx
 
