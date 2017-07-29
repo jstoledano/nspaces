@@ -101,7 +101,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_ROOT = APPS_DIR.child('assets')
-STATIC_URL = '/static/'
+STATIC_URL = '/assets/'
 STATICFILES_DIRS = (
     str(APPS_DIR.child('static')),
 )
