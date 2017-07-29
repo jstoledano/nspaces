@@ -15,8 +15,8 @@ def variables(request):
     AUTHOR = u'Javier Sanchez Toledano'
     SITENAME = u'Yo, Toledano'
     SITEURL = 'http://yo.toledano.org'
-    STATICURL = 'http://media.toledano.org'
-    SITELOGO = 'http://media.toledano.org/images/toledano-4.png'
+    STATICURL = 'https://media.toledano.org'
+    SITELOGO = 'https://media.toledano.org/images/toledano-4.png'
     TAGLINE = u'Oh tiempo tus piramides'
     DEFAULT_METADATA = {
         'about_author': '''Soy programador en Django+Python y WordPress.
@@ -26,9 +26,9 @@ def variables(request):
         'author': 'Javier Sanchez Toledano'
     }
     DISQUS_SITENAME = 'toledano'
-    PROFILE_IMAGE_URL = 'http://media.toledano.org/images/yo.jpg'
-    COVER_IMG = 'http://media.koding.mx/blog/assets/category_add.jpg'
-    ARTICLE_COVER = 'http://media.toledano.org/images/toledano-cover.jpg'
+    PROFILE_IMAGE_URL = 'https://media.toledano.org/images/yo.jpg'
+    COVER_IMG = 'https://media.koding.mx/blog/assets/category_add.jpg'
+    ARTICLE_COVER = 'https://media.toledano.org/images/toledano-cover.jpg'
     DOMAIN = "yo.toledano.org"
     FEEDBURNER = "http://feeds.feedburner.com/toledano/rss"
 
