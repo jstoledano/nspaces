@@ -11,7 +11,7 @@ import uuid
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.template.defaultfilters import truncatechars_html, striptags
+from django.template.defaultfilters import truncatechars_html, striptags, safe
 from django.db import models
 
 import markdown
@@ -163,9 +163,9 @@ class Entry(Trazabilidad):
 
     def resumen(self):
         if self.summary:
-            return striptags(self.summary)
+            return safe(striptags(self.summary))
         else:
-            return striptags(truncatechars_html(self.body_html, 250))
+            return safe(striptags(truncatechars_html(self.body_html, 250)))
 
     def get_absolute_url(self):
         return reverse(
