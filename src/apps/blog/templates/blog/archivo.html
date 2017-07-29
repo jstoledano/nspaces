@@ -21,6 +21,7 @@
 
     ul.tagcloud li {
       display: inline-block;
+      margin: 0;
     }
 
     li.tag-6 {
@@ -78,9 +79,10 @@
         <ul>
           {% for entry in entries %}
           <li>
+            <i class="fa fa-{{ entry.category.icon }}"></i>
             <a href="{% url 'entry_detail' cat=entry.category.slug slug=entry.slug %}"
                itemprop="url" rel="bookmark">
-              <i class="fa fa-{{ entry.category.icon }}"></i> {{ entry.title }}
+              {{ entry.title }}
             </a>
           </li>
           {% endfor %}

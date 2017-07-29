@@ -117,3 +117,7 @@ AUTH_USER_MODEL = 'profiles.User'
 
 ADMIN_TOOLS_MENU = 'apps.dashboard.menu.CustomMenu'
 ADMIN_TOOLS_INDEX_DASHBOARD = 'apps.dashboard.panels.CustomIndexDashboard'
+
+TAGGIT_TAGCLOUD_MIN = 1
+TAGGIT_TAGCLOUD_MAX = 6
+TAGGIT_LIMIT = 200
