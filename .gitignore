@@ -3,6 +3,7 @@
 .env
 .idea
 src/apps/assets/*
+.python-version
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
