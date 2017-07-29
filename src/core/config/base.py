@@ -27,7 +27,8 @@ DJANGO_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
+    'django.contrib.sitemaps'
 ]
 THIRD_PARTY_APPS = [
     'authtools',
@@ -58,6 +59,7 @@ TEMPLATES = [
         # 'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'apps.blog.context.variables',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',

@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% load taggit_templatetags2_tags %}
+
+{% block content %}
+<main id="content" class="content" role="main" itemprop="mainContentOfPage" itemscope="" itemtype="http://schema.org/Blog">
+  <article class="post">
+    {% include 'blog/partials/_search.html' %}
+    <script>
+      (function() {
+        var cx = '007387241458910042101:yttmqvxmhxg';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+    <gcse:searchresults-only></gcse:searchresults-only>
+    {% include 'blog/partials/_search.html' %}
+  </article>
+</main>
+{% endblock content %}

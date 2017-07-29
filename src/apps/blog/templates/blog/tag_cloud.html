@@ -1,0 +1,65 @@
+{% extends 'blog/base.html' %}
+{% load taggit_templatetags2_tags %}
+{% block header_type %}tag-head{% endblock %}
+{% block scroll %}{% endblock %}
+{% block template_type %}tag-template{% endblock %}
+
+{% block html_head %}
+<style type="text/css">
+  .page-title {
+    text-shadow: 1px 1px #000;
+  }
+  ul.tagcloud {
+  list-style: none;
+    padding: 0;
+  }
+
+  ul.tagcloud li {
+    display: inline-block;
+  }
+
+  li.tag-6 {
+    font-size: 150%;
+  }
+
+  li.tag-5 {
+    font-size: 120%;
+  }
+  li.tag-4 {
+    font-size: 100%;
+  }
+  li.tag-3 {
+    font-size: 80%;
+  }
+  li.tag-2 {
+    font-size: 60%;
+  }
+  li.tag-1 {
+    font-size: 50%;
+  }
+</style>
+{% endblock html_head %}
+
+{% block title %}Etiquetas usadas en el sitio- {{ SITENAME }}{% endblock title %}
+{% block meta_description %}En esta página se encuentran todas las etiquetas usadas en el blog. Como un índice.{% endblock meta_description %}
+
+
+{% block header_title %}
+  <h1 class="page-title" itemprop="headline"><i class="fa fa-tags"></i> Nube de Etiquetas</h1>
+  <h2 class="page-description" itemprop="description">Etiquetas usadas en {{ SITENAME }}</h2>
+{% endblock %}
+
+{% block content %}
+<main id="content" class="content" role="main" itemprop="mainContentOfPage" itemscope="" itemtype="http://schema.org/Blog">
+  <article class="post">
+    <p>
+      <ul class="tagcloud">
+        {% get_tagcloud as tags %}
+        {% for tag in tags %}
+          <li class="tag-{{ tag.weight|floatformat:0 }}"><a href="{% url 'tag_list' slug=tag.slug %}">{{ tag }}</a></li>
+        {% endfor %}
+      </ul>
+    </p>
+  </article>
+</main>
+{% endblock content %}

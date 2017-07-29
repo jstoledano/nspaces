@@ -1,0 +1,9 @@
+User-Agent: *
+
+# Mapa de contenido
+Sitemap: https://yo.toledano.org/sitemap.xml
+
+Disallow: *
+Disallow: /admin/
+Disallow: /tag/
+Disallow: /buscar/

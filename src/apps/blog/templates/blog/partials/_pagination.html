@@ -1,0 +1,13 @@
+<nav class="pagination" role="navigation">
+  {% if page_obj.has_previous %}
+    {% if page_obj.previous_page_number == 1 %}
+      <a rel="prev" class="newer-posts" href="{% url 'index' %}">&larr; Portada</a>
+    {% else %}
+      <a rel="prev" class="newer-posts" href="?page={{ page_obj.previous_page_number }}">&larr; Artículos nuevos</a>
+    {% endif %}
+  {% endif %}
+    <span class="page-number">Página {{page_obj.number}} de {{page_obj.paginator.num_pages}}</span>
+  {% if page_obj.has_next %}
+    <a rel="next" class="older-posts" href="?page={{ page_obj.next_page_number }}">Artículos anteriores &rarr;</a>
+  {% endif %}
+</nav>

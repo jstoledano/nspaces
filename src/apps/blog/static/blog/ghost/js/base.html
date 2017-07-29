@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include 'partials/_meta.html' %}
+  <title>{% block meta-title %}{{ title }}{% endblock meta-title %}</title>
+  <meta name="description" content="{% block meta-desc %}{{ description }}{% endblock meta-desc %}">
+
+  <!-- Bootstrap Core CSS -->
+  <link href="{% static 'blog/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/css/koding.min.css' %}" rel="stylesheet">
+
+  {% include 'partials/_fonts.html' %}
+  {% include 'partials/_ie8.html' %}
+  {% block head %}{% endblock head %}
+</head>
+
+<body>
+  {% include 'partials/_navbar.html' %}
+  {% block header %}
+   {% include 'partials/_header.html' %}
+  {% endblock header %}
+
+  {% block pre-container %}{% endblock %}
+  <div class="container">
+    {% block pre-content %}{% endblock %}
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+    <!-- ./END Main content -->
+    {% block post-content %}{% endblock %}
+  </div>
+  {% block post-container %}{% endblock %}
+
+  {% include 'partials/_footer.html' %}
+  {% include 'partials/_js.html' %}
+  {% block javascript %}{% endblock javascript %}
+
+</body>
+</html>
