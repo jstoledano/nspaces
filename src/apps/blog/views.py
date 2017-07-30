@@ -6,7 +6,8 @@
 #       autor: Javier Sanchez Toledano
 #       fecha: jueves, 18 de junio de 2015
 
-
+from django.conf import settings
+from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.contrib.sitemaps import Sitemap
 from django.contrib.syndication.views import Feed
 from django.shortcuts import get_object_or_404
@@ -14,13 +15,26 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
-# from django.views.generic.edit import CreateView, UpdateView
+from django.views.decorators.cache import cache_page
 
 from apps.blog.models import Entry
 from apps.blog.models import Category
 
+CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
-class EntryList(ListView):
+
+class CacheMixin(object):
+    cache_timeout = 60
+
+    def get_cache_timeout(self):
+        return self.cache_timeout
+
+    def dispatch(self, *args, **kwargs):
+        return cache_page(self.get_cache_timeout())(super(CacheMixin, self).dispatch)(*args, **kwargs)
+
+
+class EntryList(ListView, CacheMixin):
+    cache_timeout = CACHE_TTL
     model = Entry
     paginate_by = 5
     make_object_list = True

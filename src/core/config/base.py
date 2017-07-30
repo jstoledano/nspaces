@@ -50,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware'
 ]
 ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
@@ -121,3 +123,6 @@ ADMIN_TOOLS_INDEX_DASHBOARD = 'apps.dashboard.panels.CustomIndexDashboard'
 TAGGIT_TAGCLOUD_MIN = 1
 TAGGIT_TAGCLOUD_MAX = 6
 TAGGIT_LIMIT = 200
+
+# Cache time to live is 15 minutes.
+CACHE_TTL = 60 * 30
