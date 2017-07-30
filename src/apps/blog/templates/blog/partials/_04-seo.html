@@ -1,15 +1,15 @@
-
+{% load staticfiles %}
     <link type="text/plain" rel="socialmedia" href="{{ config.SITEURL }}{% url 'socialmedia' %}">
     <link rel="publisher" href="{{ config.PUBLISHER }}">
-    <link rel="apple-touch-startup-image" href="http://media.toledano.org/theme/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-startup-image" href="{{ config.SITEURL }}{% static 'blog/img/apple-touch-icon-152x152.png' %}">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="application-name" content="{{ config.SITENAME }}"/>
     <meta name="msapplication-starturl" content="{{ config.SITEURL }}"/>
     <meta name="msapplication-tooltip" content="{{ config.TAGLINE }}"/>
     <meta name="msapplication-window" content="width=1024;height=768"/>
-    <meta name="msapplication-task" content="name={{ config.SITENAME }};action-uri={{ config.SITEURL }};icon-uri={{ config.STATICURL }}/theme/images/favicon.ico"/>
-    <meta name="msapplication-TileImage" content="http://media.toledano.org/theme/images/apple-touch-icon-152x152.png"/>
+    <meta name="msapplication-task" content="name={{ config.SITENAME }};action-uri={{ config.SITEURL }};icon-uri={{ config.SITEURL }}{% static 'blog/img/favicon.ico' %}"/>
+    <meta name="msapplication-TileImage" content="{{ config.SITEURL }}{% static 'blog/img/apple-touch-icon-152x152.png' %}"/>
     <meta name="msapplication-TileColor" content="#1F1F21"/>
     <meta name="application-name" content="{{ config.SITENAME }}">
     <meta name="HandheldFriendly" content="True">
