@@ -34,4 +34,4 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
 }
-CACHE_TTL = 1
+CACHE_TTL = 60

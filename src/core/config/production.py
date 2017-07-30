@@ -23,3 +23,7 @@ CACHES = {
     },
 }
 CACHE_TTL = 60 * 60 * 24
+
+CONSTANCE_BACKEND = 'constance.backends.redisd.RedisBackend'
+CONSTANCE_REDIS_CONNECTION_CLASS = 'django_redis.get_redis_connection'
+CONSTANCE_REDIS_PREFIX = 'constance:nspace:'
