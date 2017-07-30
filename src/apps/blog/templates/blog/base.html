@@ -30,7 +30,7 @@
       <header class="main-header post-head" style="background-image: url('{% block header_image %}{{ config.COVER_IMG }}{% endblock %}');" itemscope itemtype="http://schema.org/WPHeader">
         <nav class="main-nav overlay clearfix">
           {% if config.SITELOGO %}
-            <a href="{% url "index" %}" class="blog-logo"><img src="{{ config.SITELOGO }}" alt="{{ config.SITENAME }}"></a>
+            <a href="{% url "index" %}" class="blog-logo"><img src="{% static 'blog/img/toledano-4.png' %}" alt="{{ config.SITENAME }}"></a>
           {% endif %}
           <a class="menu-button" href="#">
             <span class="burger"><i class="fa fa-bars"></i></span>
