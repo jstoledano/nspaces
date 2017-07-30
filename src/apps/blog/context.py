@@ -14,7 +14,7 @@ def variables(request):
 
     AUTHOR = u'Javier Sanchez Toledano'
     SITENAME = u'Yo, Toledano'
-    SITEURL = 'http://yo.toledano.org'
+    SITEURL = 'https://yo.toledano.org'
     STATICURL = 'https://media.toledano.org'
     SITELOGO = 'https://media.toledano.org/images/toledano-4.png'
     TAGLINE = u'Oh tiempo tus piramides'
@@ -30,7 +30,7 @@ def variables(request):
     COVER_IMG = 'https://media.koding.mx/blog/assets/category_add.jpg'
     ARTICLE_COVER = 'https://media.toledano.org/images/toledano-cover.jpg'
     DOMAIN = "yo.toledano.org"
-    FEEDBURNER = "http://feeds.feedburner.com/toledano/rss"
+    FEEDBURNER = "https://feeds.feedburner.com/toledano/rss"
 
     # OpenGraph
     USE_OPEN_GRAPH = True
