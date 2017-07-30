@@ -1,9 +1,0 @@
-<div class="navwrap">
-  <ul class="menu">
-    <li class="nav-portada nav-current" role="presentation"><a href="/">Portada</a></li>
-    {% for cat in TEMAS %}
-    <li class="nav-{{ cat.slug }}" role="presentation"><a href="{% url 'cat_detail' slug=cat.slug %}">{{ cat.title }}</a>
-    {% endfor %}
-  </ul>
-  <div class="toggle"><a href="#"><i class="fa fa-bars"></i></a></div>
-</div>
