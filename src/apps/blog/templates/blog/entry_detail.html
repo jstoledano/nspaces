@@ -233,12 +233,7 @@
           datetime="{{ article.pub_date|date:"c" }}">
           {{ article.pub_date }}
         </time>
-        etiquetado como {% for tag in article.tags.all %}
-          <i class="fa fa-tag"></i>
-          <a href="{% url 'tag_list' tag.slug %}">{{ tag }}
-            {% if not loop.last %}, {% endif %}
-          </a>
-        {% endfor %}
+        etiquetado como {% for tag in article.tags.all %}<i class="fa fa-tag"></i><a href="{% url 'tag_list' tag.slug %}">{{ tag }}</a> {% endfor %}
       </section>
     </header>
     <section class="post-content">

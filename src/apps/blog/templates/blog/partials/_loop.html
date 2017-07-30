@@ -17,7 +17,7 @@
         <a href="{% url 'cat_detail' slug=article.category.slug %}">{{ article.category }}</a>
       </strong>
     <br>
-    <strong>Etiquetas:</strong>  {% for tag in article.tags.all %}<i class="fa fa-tag"></i> <a href="{% url 'tag_list' tag.slug %}">{{ tag }}</a> {% endfor %}
+    <strong>Etiquetas:</strong>  {% for tag in article.tags.all %}<i class="fa fa-tag"></i><a href="{% url 'tag_list' tag.slug %}">{{ tag }}</a> {% endfor %}
     <time class="post-date" itemprop="datePublished" datetime="{{ article.pub_date|date:'c' }}"><i class="fa fa-calendar"></i> {{ article.pub_date }}</time>
   </footer>
 </article>
