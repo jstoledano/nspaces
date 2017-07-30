@@ -17,6 +17,8 @@ from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.decorators.cache import cache_page
 
+from constance import config
+
 from apps.blog.models import Entry
 from apps.blog.models import Category
 
@@ -122,15 +124,15 @@ class TagList(ListView, CacheMixin):
 class BlogFeed(Feed, CacheMixin):
     """RSS de los artículos recientes"""
     # Debería usar las constantes en ./context.py para evitar repeticiones DRY
-    title = 'Yo, Toledano'
-    link = 'http://yo.toledano.org'  # URI of site
-    description = 'Artículos recientes en Yo, Toledano'
-    site = 'http://yo.toledano.org'
+    title = config.SITENAME
+    link = config.SITEURL
+    description = config.RSS_DESCRIPTION
+    site = config.SITEURL
     cache_timeout = CACHE_TTL
 
-    item_author_name = 'Javier Sanchez Toledano'
-    item_author_email = 'yo@toledano.org'
-    item_author_link = 'http://yo.toledano.org'  # URI of author
+    item_author_name = config.AUTHOR
+    item_author_email = config.AUTHOR_EMAIL
+    item_author_link = config.SITEURL
 
     def items(self):
         return Entry.objects.filter(status=Entry.LIVE_STATUS).order_by('-pub_date')[:10]
@@ -146,7 +148,7 @@ class BlogSitemap(Sitemap, CacheMixin):
     cache_timeout = CACHE_TTL
     changefreq = "never"
     priority = 0.5
-    protocol = 'http'
+    protocol = 'https'
 
     def items(self):
         return Entry.objects.filter(status=Entry.LIVE_STATUS)

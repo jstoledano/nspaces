@@ -7,7 +7,7 @@
   <ul role="menubar">
     <li {% if request.path == '/' %}class="nav-current"{% endif %} role="presentation">
       <a href="{% url "index" %}"
-         title="{{ SITENAME }}"
+         title="{{ config.SITENAME }}"
          itemprop="name"
          itemprop="significantLink"><i class="fa fa-home"></i> Inicio</a>
     </li>
@@ -20,5 +20,5 @@
     <li class="{% current request 'archivo' %}" role="presentation">
       <a href="{% url 'archivo' %}"><i class="fa fa-sitemap"></i> Archivo</a></li>
   </ul>
-  <a class="subscribe-button" href="{{ FEEDBURNER }}" target='blank'><i class="fa fa-rss" aria-hidden="true"></i> Suscríbete</a>
+  <a class="subscribe-button" href="{{ config.FEEDBURNER }}" target='blank'><i class="fa fa-rss" aria-hidden="true"></i> Suscríbete</a>
 </nav>

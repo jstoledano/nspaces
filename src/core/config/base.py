@@ -63,6 +63,7 @@ TEMPLATES = [
         # 'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'constance.context_processors.config',
                 'apps.blog.context.variables',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -126,14 +127,26 @@ TAGGIT_TAGCLOUD_MIN = 1
 TAGGIT_TAGCLOUD_MAX = 6
 TAGGIT_LIMIT = 200
 
-# Cache time to live is 15 minutes.
-CACHE_TTL = 60 * 60 * 24
-
+CONSTANCE_IGNORE_ADMIN_VERSION_CHECK = True
 CONSTANCE_CONFIG = {
     'SITENAME': ('Yo, Toledano', 'Nombre del sitio'),
     'TAGLINE': ('Oh tiempo tus piramides', 'Descripción del sitio'),
     'SITEURL': ('https://yo.toledano.org', 'Dirección web del sitio'),
+    'RSS_DESCRIPTION': ('Artículos recientes en Yo, Toledano', 'Descripcieon para la fuente RSS'),
     'DOMAIN': ('yo.toledano.org', 'Dominio'),
+
+    'LICENCE': ('https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es', 'Licencia del sitio'),
+    'LICENCE_IMAGE': ('https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png', 'Imagen de la licencia'),
+
+    'AUTHOR': ('Javier Sanchez Toledano', 'Editor principal'),
+    'AUTHOR_EMAIL': ('javier@toledano.org', 'Correo del editor principal'),
+
+    'PUBLISHER': ('', 'AdSense Publisher ID'),
+    'GOOGLE_SV': ('hiMLLh1Fgb1J0rpXE4fw3zc7rRzKzbsg0y3c-6gujw0', 'Google SV id'),
+    'ALEXA': ('', 'Verificador de Alexa'),
+    'MY_WOT': ('', 'Verificador de WOT'),
+    'MSVALIDATE': ('', 'Verificador de Bing'),
+    'GOOGLE_ANALYTICS': ('UA-130534-3', 'ID de Google Analytics'),
 
     'STATICURL': ('https://media.toledano.org', 'URL de los archivos estáticos'),
     'SITELOGO': ('https://media.toledano.org/images/toledano-4.png', 'Logo del sitio'),
@@ -158,7 +171,24 @@ CONSTANCE_CONFIG_FIELDSETS = OrderedDict([
         'SITENAME',
         'TAGLINE',
         'SITEURL',
+        'RSS_DESCRIPTION',
         'DOMAIN')),
+    ('Licencia', (
+        'LICENCE',
+        'LICENCE_IMAGE'
+    )),
+    ('Metadata', (
+        'PUBLISHER',
+        'GOOGLE_SV',
+        'ALEXA',
+        'MY_WOT',
+        'MSVALIDATE',
+        'GOOGLE_ANALYTICS'
+    )),
+    ('Editor Principal', (
+        'AUTHOR',
+        'AUTHOR_EMAIL'
+    )),
     ('Temas e Imágenes', (
         'STATICURL',
         'SITELOGO',

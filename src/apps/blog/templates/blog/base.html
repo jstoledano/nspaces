@@ -3,7 +3,7 @@
 <html lang="es-mx">
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}{{ SITENAME }}  - {{ TAGLINE }}{% endblock title %}</title>
+    <title>{% block title %}{{ config.SITENAME }}  - {{ config.TAGLINE }}{% endblock title %}</title>
     <meta name="description" content="{% block meta_description %}{% endblock %}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
@@ -27,10 +27,10 @@
     {% include "blog/partials/_metaweb.html" %}
     {% include 'blog/partials/_navigation.html' %}
     <div class="site-wrapper">
-      <header class="main-header post-head" style="background-image: url('{% block header_image %}{{ COVER_IMG }}{% endblock %}');" itemscope itemtype="http://schema.org/WPHeader">
+      <header class="main-header post-head" style="background-image: url('{% block header_image %}{{ config.COVER_IMG }}{% endblock %}');" itemscope itemtype="http://schema.org/WPHeader">
         <nav class="main-nav overlay clearfix">
-          {% if SITELOGO %}
-            <a href="{% url "index" %}" class="blog-logo"><img src="{{ SITELOGO }}" alt="{{ SITENAME }}"></a>
+          {% if config.SITELOGO %}
+            <a href="{% url "index" %}" class="blog-logo"><img src="{{ config.SITELOGO }}" alt="{{ config.SITENAME }}"></a>
           {% endif %}
           <a class="menu-button" href="#">
             <span class="burger"><i class="fa fa-bars"></i></span>
@@ -40,8 +40,8 @@
         <div class="vertical">
           <div class="main-header-content inner">
             {% block header_title %}
-              <h1 class="page-title" itemprop="headline">{{ SITENAME }}</h1>
-              <h2 class="page-description" itemprop="description">{{TAGLINE}}</h2>
+              <h1 class="page-title" itemprop="headline">{{ config.SITENAME }}</h1>
+              <h2 class="page-description" itemprop="description">{{ config.TAGLINE }}</h2>
             {% endblock header_title %}
           </div>
         </div>
