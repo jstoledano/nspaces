@@ -125,4 +125,4 @@ TAGGIT_TAGCLOUD_MAX = 6
 TAGGIT_LIMIT = 200
 
 # Cache time to live is 15 minutes.
-CACHE_TTL = 60 * 30
+CACHE_TTL = 60 * 60 * 24

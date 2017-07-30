@@ -47,7 +47,8 @@ class EntryList(ListView, CacheMixin):
             .order_by('-pub_date', '-id', )
 
 
-class Archivo(TemplateView):
+class Archivo(TemplateView, CacheMixin):
+    cache_timeout = CACHE_TTL
     template_name = 'blog/archivo.html'
 
     def get_context_data(self, **kwargs):
@@ -64,7 +65,8 @@ class EntryDetail(DetailView):
     template_name = 'blog/entry_detail.html'
 
 
-class CategoryList(ListView):
+class CategoryList(ListView, CacheMixin):
+    cache_timeout = CACHE_TTL
     model = Category
     paginate_by = 5
     make_object_list = True
@@ -113,13 +115,14 @@ class TagList(ListView):
         return Entry.objects.filter(tags__slug=self.kwargs['slug']).distinct()
 
 
-class BlogFeed(Feed):
+class BlogFeed(Feed, CacheMixin):
     """RSS de los artículos recientes"""
     # Debería usar las constantes en ./context.py para evitar repeticiones DRY
     title = 'Yo, Toledano'
     link = 'http://yo.toledano.org'  # URI of site
     description = 'Artículos recientes en Yo, Toledano'
     site = 'http://yo.toledano.org'
+    cache_timeout = CACHE_TTL
 
     item_author_name = 'Javier Sanchez Toledano'
     item_author_email = 'yo@toledano.org'
@@ -135,7 +138,8 @@ class BlogFeed(Feed):
         return entry.resumen()
 
 
-class BlogSitemap(Sitemap):
+class BlogSitemap(Sitemap, CacheMixin):
+    cache_timeout = CACHE_TTL
     changefreq = "never"
     priority = 0.5
     protocol = 'http'
