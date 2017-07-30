@@ -17,7 +17,8 @@ CACHES = {
         'LOCATION': '/var/run/redis/redis.sock',
         'KEY_PREFIX': 'nspaces',
         'OPTIONS': {
-            "CLIENT_CLASS": 'django_redis.client.DefaultClient',
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'COMPRESSOR': 'django_redis.compressors.zlib.ZlibCompressor',
         }
     },
 }
