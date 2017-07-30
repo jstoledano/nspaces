@@ -31,6 +31,8 @@ urlpatterns = [
     # robots.txt y otros archivos de texto
     url(r'^robots\.txt$',
         TemplateView.as_view(template_name='blog/textos/robots.txt', content_type='text/plain'), name='robots'),
+    url(r'^socialmedia\.txt$',
+        TemplateView.as_view(template_name='blog/textos/socialmedia.txt', content_type='text/plain'), name='socialmedia'),
 
     # Páginas sin relación con modelos en apps.blog
     url(r'^archivo/$', Archivo.as_view(), name='archivo'),
