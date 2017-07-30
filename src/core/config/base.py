@@ -1,5 +1,6 @@
 from unipath import Path
 import environ
+from collections import OrderedDict
 
 ROOT_DIR = Path(__file__).ancestor(3)
 APPS_DIR = ROOT_DIR.child('apps')
@@ -34,6 +35,7 @@ THIRD_PARTY_APPS = [
     'authtools',
     'taggit',
     'taggit_templatetags2',
+    'constance'
 ]
 LOCAL_APPS = [
     'apps.profiles.config.UsersConfig',
@@ -61,6 +63,7 @@ TEMPLATES = [
         # 'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'constance.context_processors.config',
                 'apps.blog.context.variables',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -124,5 +127,86 @@ TAGGIT_TAGCLOUD_MIN = 1
 TAGGIT_TAGCLOUD_MAX = 6
 TAGGIT_LIMIT = 200
 
-# Cache time to live is 15 minutes.
-CACHE_TTL = 60 * 60 * 24
+CONSTANCE_IGNORE_ADMIN_VERSION_CHECK = True
+CONSTANCE_CONFIG = {
+    'SITENAME': ('Yo, Toledano', 'Nombre del sitio'),
+    'TAGLINE': ('Oh tiempo tus piramides', 'Descripción del sitio'),
+    'SITEURL': ('https://yo.toledano.org', 'Dirección web del sitio'),
+    'RSS_DESCRIPTION': ('Artículos recientes en Yo, Toledano', 'Descripcieon para la fuente RSS'),
+    'DOMAIN': ('yo.toledano.org', 'Dominio'),
+
+    'LICENCE': ('https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es', 'Licencia del sitio'),
+    'LICENCE_IMAGE': ('https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png', 'Imagen de la licencia'),
+
+    'AUTHOR': ('Javier Sanchez Toledano', 'Editor principal'),
+    'AUTHOR_EMAIL': ('javier@toledano.org', 'Correo del editor principal'),
+
+    'PUBLISHER': ('', 'AdSense Publisher ID'),
+    'GOOGLE_SV': ('hiMLLh1Fgb1J0rpXE4fw3zc7rRzKzbsg0y3c-6gujw0', 'Google SV id'),
+    'ALEXA': ('', 'Verificador de Alexa'),
+    'MY_WOT': ('', 'Verificador de WOT'),
+    'MSVALIDATE': ('', 'Verificador de Bing'),
+    'GOOGLE_ANALYTICS': ('UA-130534-3', 'ID de Google Analytics'),
+
+    'STATICURL': ('https://media.toledano.org', 'URL de los archivos estáticos'),
+    'SITELOGO': ('https://media.toledano.org/images/toledano-4.png', 'Logo del sitio'),
+    'COVER_IMG': ('https://media.koding.mx/blog/assets/category_add.jpg', 'URL de la imagen de portada'),
+    'ARTICLE_COVER': ('https://media.toledano.org/images/toledano-cover.jpg', 'URL de la imagen de los artículos'),
+    'PROFILE_IMAGE_URL': ('https://media.toledano.org/images/yo.jpg', 'URL de la imagen de perfil'),
+
+    'DISQUS_SITENAME': ('toledano', 'Identificación de Disqus'),
+    'FEEDBURNER': ('http://feeds.feedburner.com/toledano/rss', 'URL de las fuentes RSS en Feedburner'),
+    'TWITTER_USERNAME': ('jstoledano', 'Usuario de Twitter'),
+    'USE_OPEN_GRAPH': (True, 'Se usará OpenGraph', bool),
+    'SITE_LANG': ('es_MX', 'Idioma del sitio'),
+    'SITE_LANG_ALTERNATE': ('es', 'Idioma alterno'),
+    'OPEN_GRAPH_FB_APP_ID': ('112184015464389', 'Identificador de la App de Facebook'),
+
+    'VECINO_ANTERIOR': ('https://media.toledano.org/casper/img/anterior.jpg', 'URL de la imagen del artículo anterior'),
+    'VECINO_SIGUIENTE':('https://media.toledano.org/casper/img/siguiente.jpg', 'URL de la imagen del artículo siguiente')
+}
+
+CONSTANCE_CONFIG_FIELDSETS = OrderedDict([
+    ('Sobre el sitio', (
+        'SITENAME',
+        'TAGLINE',
+        'SITEURL',
+        'RSS_DESCRIPTION',
+        'DOMAIN')),
+    ('Licencia', (
+        'LICENCE',
+        'LICENCE_IMAGE'
+    )),
+    ('Metadata', (
+        'PUBLISHER',
+        'GOOGLE_SV',
+        'ALEXA',
+        'MY_WOT',
+        'MSVALIDATE',
+        'GOOGLE_ANALYTICS'
+    )),
+    ('Editor Principal', (
+        'AUTHOR',
+        'AUTHOR_EMAIL'
+    )),
+    ('Temas e Imágenes', (
+        'STATICURL',
+        'SITELOGO',
+        'COVER_IMG',
+        'ARTICLE_COVER',
+        'PROFILE_IMAGE_URL',
+    )),
+    ('Redes Sociales', (
+        'DISQUS_SITENAME',
+        'FEEDBURNER',
+        'TWITTER_USERNAME',
+        'USE_OPEN_GRAPH',
+        'SITE_LANG',
+        'SITE_LANG_ALTERNATE',
+        'OPEN_GRAPH_FB_APP_ID'
+    )),
+    ('Paginación', (
+        'VECINO_ANTERIOR',
+        'VECINO_SIGUIENTE'
+    )),
+])

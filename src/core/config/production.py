@@ -22,3 +22,8 @@ CACHES = {
         }
     },
 }
+CACHE_TTL = 60 * 60 * 24
+
+CONSTANCE_BACKEND = 'constance.backends.redisd.RedisBackend'
+CONSTANCE_REDIS_CONNECTION = '/var/run/redis/redis.sock'
+CONSTANCE_REDIS_PREFIX = 'constance:nspace:'
