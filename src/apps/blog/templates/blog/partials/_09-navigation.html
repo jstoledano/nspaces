@@ -1,0 +1,25 @@
+<!-- Template: blog/partials/_09-navigation.html -->
+{% load blog_extra %}
+<nav class="nav">
+  <h3 class="nav-title">Menú</h3>
+  <a href="#" class="nav-close">
+    <span class="hidden">Cerrar</span>
+  </a>
+  <ul role="menubar">
+    <li {% if request.path == '/' %}class="nav-current"{% endif %} role="presentation">
+      <a href="{% url "index" %}"
+         title="{{ config.SITENAME }}"
+         itemprop="name"
+         itemprop="significantLink"><i class="fa fa-home"></i> Inicio</a>
+    </li>
+    {% for cat in TEMAS %}
+      <li class="nav-{{ cat.slug }} {% current request cat.slug %}" role="presentation">
+        <a href="{% url 'cat_detail' slug=cat.slug %}">
+          <i class="fa fa-{{ cat.icon }}"></i> {{ cat.title }}
+        </a>
+    {% endfor %}
+    <li class="{% current request 'archivo' %}" role="presentation">
+      <a href="{% url 'archivo' %}"><i class="fa fa-sitemap"></i> Archivo</a></li>
+  </ul>
+  <a class="subscribe-button" href="{{ config.FEEDBURNER }}" target='blank'><i class="fa fa-rss" aria-hidden="true"></i> Suscríbete</a>
+</nav>

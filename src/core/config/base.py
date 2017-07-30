@@ -150,7 +150,7 @@ CONSTANCE_CONFIG = {
 
     'STATICURL': ('https://media.toledano.org', 'URL de los archivos estáticos'),
     'SITELOGO': ('https://media.toledano.org/images/toledano-4.png', 'Logo del sitio'),
-    'COVER_IMG': ('https://media.koding.mx/blog/assets/category_add.jpg', 'URL de la imagen de portada'),
+    'COVER_IMG': ('http://media.toledano.org/images/category_add_95d30aaa88ef6cdcb41daa7f39c02543.jpg', 'URL de la imagen de portada'),
     'ARTICLE_COVER': ('https://media.toledano.org/images/toledano-cover.jpg', 'URL de la imagen de los artículos'),
     'PROFILE_IMAGE_URL': ('https://media.toledano.org/images/yo.jpg', 'URL de la imagen de perfil'),
 

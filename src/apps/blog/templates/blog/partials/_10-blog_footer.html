@@ -1,0 +1,16 @@
+<!-- Template: blog/partials/_10-blog_footer.html -->
+<footer class="site-footer clearfix" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+  <section class="copyright">
+    Publicado <em>orgullosamente</em> con
+    <a itemprop="url" href="https://djangoproject.com" target="_blank">Django</a>
+    | Licencia
+    <a itemprop="url" href="{{ config.LICENCE }}" target="_blank">
+      <img alt="Licencia Creative Commons" style="border-width:0; vertical-align:middle;" src="{{ config.LICENCE_IMAGE }}" />
+    </a>
+  </section>
+  <section class="poweredby">
+    <a href="{% url 'cats' %}" title="Categorías"><i class="fa fa-folder-open"></i> Categorías</a> |
+    <a href="{% url 'tag_cloud' %}" title="Nube de Etiquetas"><i class="fa fa-tags"></i> Nube de Etiquetas</a> |
+    <a href="{% url 'archivo' %}" title="Archivo"><i class="fa fa-sitemap"></i> Archivo</a>
+  </section>
+</footer>

@@ -1,0 +1,7 @@
+    <!-- Template blog/partials/_06-feed_rss.html -->
+{% if config.FEEDBURNER %}
+      <link rel="alternate" type="application/rss+xml" title="{{ config.SITENAME }} RSS Feed" href="{{ config.FEEDBURNER }}"/>
+  {% if category %}
+    <link rel="alternate" type="application/rss+xml" title="{{ config.SITENAME }} RSS Feed for {{ category|striptags }} category" href="{{ SITEURL }}/feed/{{ category.slug }}.atom.xml"/>
+  {% endif %}
+{% endif %}
