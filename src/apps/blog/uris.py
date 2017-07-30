@@ -32,7 +32,10 @@ urlpatterns = [
     url(r'^robots\.txt$',
         TemplateView.as_view(template_name='blog/textos/robots.txt', content_type='text/plain'), name='robots'),
     url(r'^socialmedia\.txt$',
-        TemplateView.as_view(template_name='blog/textos/socialmedia.txt', content_type='text/plain'), name='socialmedia'),
+        TemplateView.as_view(template_name='blog/textos/socialmedia.txt', content_type='text/plain'),
+        name='socialmedia'),
+    url(r'^keybase\.txt$',
+        TemplateView.as_view(template_name='blog/textos/keybase.txt', content_type='text/plain'), name='keybase'),
 
     # Páginas sin relación con modelos en apps.blog
     url(r'^archivo/$', Archivo.as_view(), name='archivo'),
