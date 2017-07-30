@@ -80,6 +80,85 @@
     "description": "{{ article.resumen|striptags|escapejs }}"
   }
 </script>
+{% endblock html_head %}
+
+{% block header_title %}
+  <h1 class="page-title" itemprop="headline">{{ article.title }}</h1>
+  <h2
+    class="page-description"
+    itemprop="description">
+    Archivada en <i class="fa fa-{{ article.category.icon }}"></i>
+    <a style="color: #fff; text-decoration: none;" href="{{ article.category.get_absolute_url }}">
+      <strong>{{ article.category }}</strong>
+    </a>
+  </h2>
+{% endblock header_title %}
+
+{% block content %}
+<main id="content" class="content" role="main">
+  <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="headline">{{ article.title }}</h1>
+      <section class="post-meta">
+        <i class="fa fa-calendar"></i>
+        <time
+          class="post-date"
+          itemprop="datePublished"
+          datetime="{{ article.pub_date|date:"c" }}">
+          {{ article.pub_date }}
+        </time>
+        etiquetado como {% for tag in article.tags.all %}<i class="fa fa-tag"></i><a href="{% url 'tag_list' tag.slug %}">{{ tag }}</a> {% endfor %}
+      </section>
+    </header>
+    <section class="post-content">
+      {{ article.body_html|safe }}
+      {{ article.extend_html|safe }}
+    </section>
+    <footer class="post-footer">
+      <figure class="author-image">
+        <a class="img" href="{{ config.SITEURL }}" style="background-image: url('{{ config.PROFILE_IMAGE_URL }}')"><span class="hidden">{{ article.autor }}'s Picture</span></a>
+      </figure>
+      <section class="author">
+        <h4>
+          {{ article.autor.name }}
+        </h4>
+        <p>{% if article.autor.profile.bio %}{{ article.autor.profile.bio }}{% else %}{{ config.AUTHOR_BIO }}{% endif %}</p>
+        <div class="author-meta">
+          <i class="fa fa-map-marker"></i>
+          {{ article.autor.profile.location }}
+        </div>
+      </section>
+      <section class="share">
+        <h4>Comparte este artículo</h4>
+        <a class="twitter" href="https://twitter.com/share?text={{ article.title | urlencode | truncatechars:60 }}{{ ' via @' | urlencode }}{{ config.TWITTER_USERNAME }}&amp;url={{ config.SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-twitter fa-stack-1x fa-inverse" style="color: #55acee;"></i>
+          </span>
+        </a>
+        <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ config.SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-facebook fa-stack-1x fa-inverse" style="color: #3b5998;"></i>
+          </span>
+        </a>
+        <a class="google-plus" href="https://plus.google.com/share?url={{ config.SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-google-plus fa-stack-1x fa-inverse" style="color: #dd4b39;"></i>
+          </span>
+        </a>
+      </section>
+      {% include 'blog/partials/_search.html' %}
+      {% if article.enable_comments %}
+        {% include 'blog/partials/_comments.html' %}
+      {% endif %}
+    </footer>
+  </article>
+</main>
+{% include 'blog/partials/_vecinos.html' %}
+{% endblock content %}
+{% block css_diferido %}
 <style media="screen">
   {% if article.featured %}
     .post-head.main-header {
@@ -202,81 +281,4 @@
     border:1px solid #8ed9f6;
   }
 </style>
-{% endblock html_head %}
-
-{% block header_title %}
-  <h1 class="page-title" itemprop="headline">{{ article.title }}</h1>
-  <h2
-    class="page-description"
-    itemprop="description">
-    Archivada en <i class="fa fa-{{ article.category.icon }}"></i>
-    <a style="color: #fff; text-decoration: none;" href="{{ article.category.get_absolute_url }}">
-      <strong>{{ article.category }}</strong>
-    </a>
-  </h2>
-{% endblock header_title %}
-
-{% block content %}
-<main id="content" class="content" role="main">
-  <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="headline">{{ article.title }}</h1>
-      <section class="post-meta">
-        <i class="fa fa-calendar"></i>
-        <time
-          class="post-date"
-          itemprop="datePublished"
-          datetime="{{ article.pub_date|date:"c" }}">
-          {{ article.pub_date }}
-        </time>
-        etiquetado como {% for tag in article.tags.all %}<i class="fa fa-tag"></i><a href="{% url 'tag_list' tag.slug %}">{{ tag }}</a> {% endfor %}
-      </section>
-    </header>
-    <section class="post-content">
-      {{ article.body_html|safe }}
-      {{ article.extend_html|safe }}
-    </section>
-    <footer class="post-footer">
-      <figure class="author-image">
-        <a class="img" href="{{ config.SITEURL }}" style="background-image: url('{{ config.PROFILE_IMAGE_URL }}')"><span class="hidden">{{ article.autor }}'s Picture</span></a>
-      </figure>
-      <section class="author">
-        <h4>
-          {{ article.autor.name }}
-        </h4>
-        <p>{% if article.autor.profile.bio %}{{ article.autor.profile.bio }}{% else %}{{ config.AUTHOR_BIO }}{% endif %}</p>
-        <div class="author-meta">
-          <i class="fa fa-map-marker"></i>
-          {{ article.autor.profile.location }}
-        </div>
-      </section>
-      <section class="share">
-        <h4>Comparte este artículo</h4>
-        <a class="twitter" href="https://twitter.com/share?text={{ article.title | urlencode | truncatechars:60 }}{{ ' via @' | urlencode }}{{ config.TWITTER_USERNAME }}&amp;url={{ config.SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-          <span class="fa-stack">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-twitter fa-stack-1x fa-inverse" style="color: #55acee;"></i>
-          </span>
-        </a>
-        <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ config.SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-          <span class="fa-stack">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-facebook fa-stack-1x fa-inverse" style="color: #3b5998;"></i>
-          </span>
-        </a>
-        <a class="google-plus" href="https://plus.google.com/share?url={{ config.SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-          <span class="fa-stack">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-google-plus fa-stack-1x fa-inverse" style="color: #dd4b39;"></i>
-          </span>
-        </a>
-      </section>
-      {% include 'blog/partials/_search.html' %}
-      {% if article.enable_comments %}
-        {% include 'blog/partials/_comments.html' %}
-      {% endif %}
-    </footer>
-  </article>
-</main>
-{% include 'blog/partials/_vecinos.html' %}
-{% endblock content %}
+{% endblock css_diferido %}
