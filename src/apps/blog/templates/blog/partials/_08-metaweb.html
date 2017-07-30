@@ -1,7 +1,7 @@
 <!-- Template: blog/partials/_08-metaweb.html -->
 {% if article %}
   <meta itemprop="name" content="{{ article.title|striptags }}">
-  <meta itemprop="url" content="{{ config.SITEURL }}{{ article.url }}">
+  <meta itemprop="url" content="{{ config.SITEURL }}{{ article.get_absolute_url }}">
   <meta itemprop="headline" content="{{ article.title|striptags }} || {{ config.SITENAME }} || {{ config.TAGLINE }}">
   <meta itemprop="description about" content="{% if article.summary %}{{ article.summary|striptags }}{% else %}{{ article.content|striptags|truncatechars:260 }}{% endif %}">
   <meta itemprop="keywords" content="{% if article.category %} {{ article.category.slug }}{% endif %}{% for tag in article.tags.all %} {{ tag.slug }}{% endfor %}">
