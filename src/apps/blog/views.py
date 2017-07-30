@@ -59,7 +59,8 @@ class Archivo(TemplateView, CacheMixin):
         return ctx
 
 
-class EntryDetail(DetailView):
+class EntryDetail(DetailView, CacheMixin):
+    cache_timeout = CACHE_TTL
     model = Entry
     context_object_name = 'article'
     template_name = 'blog/entry_detail.html'
@@ -73,7 +74,8 @@ class CategoryList(ListView, CacheMixin):
     context_object_name = 'cats'
 
 
-class CategoryDetail(ListView):
+class CategoryDetail(ListView, CacheMixin):
+    cache_timeout = CACHE_TTL
     model = Entry
     context_object_name = 'cat'
     allow_empty = True
@@ -96,11 +98,13 @@ class CategoryDetail(ListView):
         return ctx
 
 
-class TagCloud(TemplateView):
+class TagCloud(TemplateView, CacheMixin):
+    cache_timeout = CACHE_TTL
     template_name = 'blog/tag_cloud.html'
 
 
-class TagList(ListView):
+class TagList(ListView, CacheMixin):
+    cache_timeout = CACHE_TTL
     paginate_by = 5
     context_object_name = 'tag'
     template_name = 'blog/tag.html'
