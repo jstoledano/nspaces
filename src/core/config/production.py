@@ -11,3 +11,13 @@ ROLLBAR = {
     'branch': 'master',
     'root': ROOT_DIR,
 }
+CACHES = {
+    'default': {
+        'BACKEND': 'redis_cache.RedisCache',
+        'LOCATION': '/var/run/redis/redis.sock',
+        'KEY_PREFIX': 'nspaces',
+        'OPTIONS': {
+            "CLIENT_CLASS": 'django_redis.client.DefaultClient',
+        }
+    },
+}
