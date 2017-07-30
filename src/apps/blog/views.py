@@ -24,7 +24,7 @@ CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 
 class CacheMixin(object):
-    cache_timeout = 60
+    cache_timeout = CACHE_TTL
 
     def get_cache_timeout(self):
         return self.cache_timeout
