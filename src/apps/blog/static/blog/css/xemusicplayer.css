@@ -1,0 +1,962 @@
+/*************************************************************************/
+/* Theme 1 */
+/*************************************************************************/
+.xeMusicPlayer{
+    width: 370px;
+    height: 145px;
+    background-color: #242424;
+    font-family: Arial;
+    overflow: hidden;
+
+    /* CSS3*/
+    /*background-image: url('../img/back.png');*/
+    background-image: -moz-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0,8)), color-stop(1%,rgba(255,255,255,0,6)), color-stop(2%,rgba(255,255,255,0,4)),color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background-image: -webkit-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background-image: -o-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+    background-image: -ms-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background-image: linear-gradient(to bottom,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.xeMusicPlayer p {
+    text-shadow: 1px 1px #000;
+}
+.xeMusicPlayer .xeButton > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.xeMusicPlayer .xeButton > ul > li{
+    height: 16px;
+    width: 16px;
+    float: left;
+    margin-right: 5px;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.xeMusicPlayer .xePlay a:before{
+    border-left-color: #fff !important;
+}
+.xeMusicPlayer .xePlay.xeStop a:before{
+    border-color: #fff !important;
+}
+.xeMusicPlayer .xeNext a:after {
+    border-left-color:#fff !important;
+}
+.xeMusicPlayer .xePrevious a:before {
+    background:#fff !important;
+}
+.xeMusicPlayer .xePrevious a:after {
+    border-right-color:#fff !important;
+}
+.xeMusicPlayer .xeButton > ul > li.disabled{
+    opacity: 0.5;
+    cursor: inherit;
+}
+.xeMusicPlayer .xeHeader{
+    height: 102px;
+    display: inline-block;
+}
+.xeMusicPlayer .xeMusicHeader{
+    margin-left: 100px;
+    width: 220px;
+}
+.xeMusicPlayer .xeMusicHeader > .xeMusicHeaderText{
+    float: left;
+    width: 260px;
+}
+
+.xeMusicPlayer .xeMusicHeader > .xeMusicHeaderText p {
+    list-style: 1.1em;;
+}
+
+.xeMusicPlayer .xeSidebar{
+    float: right;
+    margin-top: 12px;
+}
+.xeMusicPlayer .xeSidebar > .xeSidebarIcon{
+    height: 16px;
+    width: 16px;
+    background: url('../img/warning.png') no-repeat top left;
+}
+.xeMusicPlayer .xeTitle{
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    padding: 0 !important;
+    margin: 12px 0 0 0 !important;
+    text-align: left;
+}
+.xeMusicPlayer .xeTitleLink{
+    color: #fff !important;
+}
+.xeMusicPlayer .xeTitleBy{
+    color: #C4C4C4 !important;
+    font-size: 18px !important;
+    padding: 0 !important;
+    margin:  5px 0 0 0 !important;
+    text-align: left;
+}
+.xeMusicPlayer .xeCover{
+    padding: 5px;
+    height: 90px;
+    width: 90px;
+    overflow: hidden;
+    float: left;
+}
+.xeMusicPlayer .xeCover > img{
+    padding: 2px;
+    border: 2px solid #2E2E2E;
+    margin: 5px 0px !important;
+    max-width: 90% !important;
+}
+.xeMusicPlayer > .xePlayer{
+    height: 35px;
+    background-color: #a83b02;
+    padding: 4px 0 0 5px;
+
+    /* CSS3*/
+    background: rgb(251,117,1); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(251,117,1,1) 0%, rgba(168,59,2,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(251,117,1,1)), color-stop(100%,rgba(168,59,2,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(251,117,1,1) 0%,rgba(168,59,2,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(251,117,1,1) 0%,rgba(168,59,2,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(251,117,1,1) 0%,rgba(168,59,2,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(251,117,1,1) 0%,rgba(168,59,2,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fb7501', endColorstr='#a83b02',GradientType=0 ); /* IE6-9 */
+
+}
+.xeMusicPlayer > .xePlayer > .xeTime {
+    float: right;
+    margin-right: 5px;
+}
+.xeMusicPlayer .xeBar{
+    width: 210px;
+    height: 12px;
+    background: #363636;
+    background-image: url('../img/back.png');
+    float: left;
+    margin: 3px 0 0 7px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.xeMusicPlayer .xeBarTime{
+    width: 206px;
+    height: 8px;
+    background: #FFCC2A;
+    float: left;
+    margin: 2px 0 0 2px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    background-image: -moz-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0,8)), color-stop(1%,rgba(255,255,255,0,6)), color-stop(2%,rgba(255,255,255,0,4)),color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background-image: -webkit-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background-image: -o-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+    background-image: -ms-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background-image: linear-gradient(to bottom,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+}
+.xeMusicPlayer > .xePlayer > .xeTime > p{
+    padding: 0;
+    margin: 0;
+    color: #fff;
+}
+.xeMusicPlayer > .xePlayer > .xeBar.loader{
+    background-image: url('../img/loader.gif') !important;
+    background-position: -5px;
+}
+.xeMusicPlayer .xeTooltip > span {
+    z-index: 10;
+    display: none;
+    padding: 5px 10px 5px 10px;
+    margin-top: -28px;
+    margin-left: -83px;
+    width: 160px;
+    line-height: 16px;
+    font-size: 11px;
+    text-align: center;
+}
+.xeMusicPlayer .xeTooltip:hover > span,
+.xeMusicPlayer .xeTooltip:focus > span{
+    display: inline;
+    position: absolute;
+    color: #FFF;
+    border: 1px solid #2B2B2B;
+    background: #000;
+}
+.xeMusicPlayer .xeTooltip > span
+{
+    border-radius:4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+/*************************************************************************/
+/* Theme 1 - Mode 2 */
+/*************************************************************************/
+.xeMusicPlayer.xeMode2 .xeBar
+{
+    width: 130px;
+    margin-right: 10px;
+    margin-top: 13px;
+}
+.xeMusicPlayer.xeMode2 .xeBarTime{
+    width: 126px;
+}
+.xeMusicPlayer.xeMode2 .xeTime
+{
+    float: left;
+    margin-top: 1px;
+}
+.xeMusicPlayer.xeMode2 .xeVolume
+{
+    float: left;
+    margin-left: 5px;
+}
+.xeMusicPlayer.xeMode2 .xeVolume > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.xeMusicPlayer.xeMode2 .xeVolume > ul > li{
+    height: 20px;
+    width: 20px;
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.xeMusicPlayer.xeMode2 .xeVolume > ul > li.disabled{
+    opacity: 0.5;
+    cursor: inherit;
+}
+.xeMusicPlayer2.xeMode2 .xeVolumeIcon a:before{
+    border-right-color:#fff !important;
+}
+.xeMusicPlayer2.xeMode2 .xeVolumeOn:before{
+    border-color:#fff !important;
+}
+.xeMusicPlayer.xeMode2 .xeBarVolume
+{
+    width: 44px;
+    height: 12px;
+    background: #363636;
+    float: left;
+    margin: 13px 0 0 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.xeMusicPlayer.xeMode2 .xeBarVolumeLine{
+    width: 40px;
+    height: 8px;
+    background: #FFCC2A;
+    float: left;
+    margin: 2px 0 0 2px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    background-image: -moz-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0,8)), color-stop(1%,rgba(255,255,255,0,6)), color-stop(2%,rgba(255,255,255,0,4)),color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background-image: -webkit-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background-image: -o-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+    background-image: -ms-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background-image: linear-gradient(to bottom,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.6) 1%,rgba(255,255,255,0.4) 2%,rgba(255,255,255,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+
+
+
+
+/*************************************************************************/
+/* Theme 2 */
+/*************************************************************************/
+.xeMusicPlayer2 {
+    width: 330px;
+    height: 40px;
+    background-color: #242424;
+    font-family: Arial;
+    overflow: hidden;
+    border: 1px solid #000;
+    padding: 2px;
+
+    background: rgb(76,76,76); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(76,76,76,1) 6%, rgba(56,56,56,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(6%,rgba(76,76,76,1)), color-stop(100%,rgba(56,56,56,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(76,76,76,1) 6%,rgba(56,56,56,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(76,76,76,1) 6%,rgba(56,56,56,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(76,76,76,1) 6%,rgba(56,56,56,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(76,76,76,1) 6%,rgba(56,56,56,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#383838',GradientType=0 ); /* IE6-9 */
+
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.xeMusicPlayer2 > .xeHeader{
+    float:left;
+    width: 120px;
+    background: #322E2F;
+    height: 31px;
+    padding: 3px;
+    box-shadow: 1px 1px 5px #000 inset;
+    border: 1px solid #000;
+}
+.xeMusicPlayer2 > .xeHeader > .xeCover {
+    float: left;
+    height: 31px;
+}
+.xeMusicPlayer2 > .xeHeader > .xeButton {
+    float: left;
+    margin: 7px 0 0 13px;
+}
+.xeMusicPlayer2 > .xeHeader > .xeButton > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.xeMusicPlayer2 > .xeHeader > .xeButton > ul > li{
+    height: 16px;
+    width: 16px;
+    float: left;
+    margin-right: 9px;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.xeMusicPlayer2 > .xeHeader >  .xeButton > ul > li.disabled{
+    opacity: 0.5;
+    cursor: inherit;
+}
+.xeMusicPlayer2 > .xePlayer{
+    float:left;
+}
+.xeMusicPlayer2 .xeBar{
+    float: left;
+    width: 150px;
+    height: 12px;
+    background: #2b2225;
+    float: left;
+    margin: 13px 0 0 7px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.xeMusicPlayer2 .xeBarTime{
+    width: 146px;
+    height: 8px;
+    background: #FFCC2A;
+    float: left;
+    margin: 2px 0 0 2px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    background: rgb(123,151,163); /* Old browsers */
+    background: -moz-linear-gradient(left,  rgba(123,151,163,1) 0%, rgba(236,215,184,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(123,151,163,1)), color-stop(100%,rgba(236,215,184,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(123,151,163,1) 0%,rgba(236,215,184,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(123,151,163,1) 0%,rgba(236,215,184,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(123,151,163,1) 0%,rgba(236,215,184,1) 100%); /* IE10+ */
+    background: linear-gradient(to right,  rgba(123,151,163,1) 0%,rgba(236,215,184,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7b97a3', endColorstr='#ecd7b8',GradientType=1 ); /* IE6-9 */
+}
+.xeMusicPlayer2 .xeTime{
+    float: left;
+    color: #FFF;
+    width: 40px;
+    text-align: right;
+    line-height: 10px;
+}
+
+/*************************************************************************/
+/* Theme 2 - Mode 2 */
+/*************************************************************************/
+.xeMusicPlayer2.xeMode2 .xeBar{
+    width: 120px;
+}
+.xeMusicPlayer2.xeMode2 .xeBarTime{
+    width: 116px;
+}
+.xeMusicPlayer2.xeMode2 .xeVolume
+{
+    float: left;
+    margin-top: 7px;
+}
+.xeMusicPlayer2.xeMode2 .xeVolume > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.xeMusicPlayer2.xeMode2 .xeVolume > ul > li{
+    height: 25px;
+    width: 25px;
+    float: left;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.xeMusicPlayer2.xeMode2 .xeVolume > ul > li.disabled{
+    opacity: 0.5;
+    cursor: inherit;
+}
+.xeMusicPlayer2.xeMode2 .xeVolumeIcon a:before{
+    border-right-color:#e9e1ce !important;
+}
+.xeMusicPlayer2.xeMode2 .xeVolumeOn:before{
+    border-color:#e9e1ce !important;
+}
+.xeMusicPlayer2.xeMode2 .xeTime{
+    width: 43px;
+    margin-right: 5px;
+}
+
+
+
+
+
+
+
+/*************************************************************************/
+/* Theme 3 */
+/*************************************************************************/
+.xeMusicPlayer3 {
+    width: 334px;
+    height: 140px;
+    background-color: #252527;
+    font-family: Arial;
+    overflow: hidden;
+    border: 1px solid #000;
+
+    background: rgb(37,37,39); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(37,37,39,1) 0%, rgba(21,21,21,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(37,37,39,1)), color-stop(100%,rgba(21,21,21,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(37,37,39,1) 0%,rgba(21,21,21,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(37,37,39,1) 0%,rgba(21,21,21,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(37,37,39,1) 0%,rgba(21,21,21,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(37,37,39,1) 0%,rgba(21,21,21,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#252527', endColorstr='#151515',GradientType=0 ); /* IE6-9 */
+
+
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.xeMusicPlayer3 .xePlayer{
+    padding: 6px;
+    border-bottom: 1px solid #000;
+}
+.xeMusicPlayer3 .xeBar{
+    width: 323px;
+    height: 12px;
+    background: #181818;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.xeMusicPlayer3 .xeBarTime{
+    width: 319px;
+    height: 8px;
+    background: #BBC531;
+    float: left;
+    margin: 2px 0 0 2px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    background: rgb(245,251,0); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(245,251,0,1) 1%, rgba(187,197,49,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(245,251,0,1)), color-stop(100%,rgba(187,197,49,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(245,251,0,1) 1%,rgba(187,197,49,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(245,251,0,1) 1%,rgba(187,197,49,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(245,251,0,1) 1%,rgba(187,197,49,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(245,251,0,1) 1%,rgba(187,197,49,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5fb00', endColorstr='#bbc531',GradientType=0 ); /* IE6-9 */
+}
+.xeMusicPlayer3 .xeButton > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.xeMusicPlayer3 .xeButton > ul > li{
+    height: 16px;
+    width: 16px;
+    float: left;
+    margin-right: 5px;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.xeMusicPlayer3 .xeButton > ul > li.disabled{
+    opacity: 0.5;
+    cursor: inherit;
+}
+.xeMusicPlayer3 .xePlay a:before{
+    border-left-color: #dbd7d8 !important;
+}
+.xeMusicPlayer3 .xePlay.xeStop a:before{
+    border-color: #dbd7d8 !important;
+}
+.xeMusicPlayer3 .xeNext a:after {
+    border-left-color:#dbd7d8 !important;
+}
+.xeMusicPlayer3 .xePrevious a:before {
+    background:#dbd7d8 !important;
+}
+.xeMusicPlayer3 .xePrevious a:after {
+    border-right-color:#dbd7d8 !important;
+}
+.xeMusicPlayer3  .xePrevious{
+    margin-right: 15px !important;
+}
+.xeMusicPlayer3 .xeNext{
+    margin-left: 8px;
+}
+.xeMusicPlayer3 .xeHeader{
+    border-top: 1px solid #343434;
+    padding: 8px;
+}
+.xeMusicPlayer3 .xeButtonWithVolume{
+    height: 22px;
+    margin-top: 9px;
+}
+.xeMusicPlayer3 .xeCover{
+    width: 70px;
+    margin-right: 15px;
+    float: left;
+}
+.xeMusicPlayer3 .xeMusicHeader{
+    width: 230px;
+    float: left;
+}
+.xeMusicPlayer3 .xeTitle{
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: left;
+}
+.xeMusicPlayer3 .xeTitleLink{
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: left;
+}
+.xeMusicPlayer3 .xeTitleBy{
+    color: #C4C4C4 !important;
+    font-size: 12px !important;
+    padding: 0 !important;
+    margin:  5px 0 0 0 !important;
+    text-align: left;
+}
+.xeMusicPlayer3 .xeTime {
+    float: right;
+    margin-right: 5px;
+    color: #fff;
+}
+.xeMusicPlayer3 .xeTime > p {
+    margin: 0;
+}
+
+/*************************************************************************/
+/* Theme 3 - Mode 2 */
+/*************************************************************************/
+.xeMusicPlayer3.xeMode2 .xeVolume
+{
+    float: right;
+    margin-left: 5px;
+}
+.xeMusicPlayer3.xeMode2 .xeVolume > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.xeMusicPlayer3.xeMode2 .xeVolume > ul > li{
+    height: 30px;
+    width: 30px;
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.xeMusicPlayer3.xeMode2 .xeVolume > ul > li.disabled{
+    opacity: 0.5;
+    cursor: inherit;
+}
+.xeMusicPlayer3.xeMode2 .xeVolume > ul > li.xeVolumeIcon{
+    margin: -7px -6px 0 0;
+}
+.xeMusicPlayer3.xeMode2 .xeVolumeOn:before{
+    border-color:#dbd7d8 !important;
+}
+.xeMusicPlayer3.xeMode2 .xeVolumeMute:before {
+    border-color: #dbd7d8 !important;
+}
+.xeMusicPlayer3.xeMode2 .xeVolumeMute:after {
+    border-top-color: #dbd7d8 !important;
+}
+
+
+
+
+
+
+
+/*************************************************************************/
+/* Theme 4 */
+/*************************************************************************/
+.xeMusicPlayer4 {
+    width: 250px;
+    height: 250px;
+    background-color: #252527;
+    font-family: Arial;
+    overflow: hidden;
+    box-shadow: 0 0 6px #9C9C9C;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.xeMusicPlayer4 .xeCover{
+    z-index: 1;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    position: absolute;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.xeMusicPlayer4 .xePlayer{
+    z-index: 2;
+    position: absolute;
+    width: 250px;
+    height: 250px;
+
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(0,0,0,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+
+    -webkit-border-radius:  5px;
+    -moz-border-radius:  5px;
+    border-radius:  5px;
+}
+.xeMusicPlayer4 .xeButton {
+    margin: auto;
+    width: 120px;
+    height: 40px;
+    margin-top: 100px;
+}
+.xeMusicPlayer4 .xeButton > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.xeMusicPlayer4 .xeButton > ul > li{
+    height: 41px;
+    width: 36.86px;
+    float: left;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    border-top: 1px solid rgba(255, 252, 252, 0.5);
+    border-right: 2px solid rgba(109, 109, 109, 0.5);
+    border-left: 1px solid rgba(167, 167, 167, 0.5);
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 1px 1px 3px #000;
+}
+.xeMusicPlayer4 .xeButton > ul > li.disabled{
+    opacity: 0.5;
+    cursor: inherit;
+}
+.xeMusicPlayer4 .xePlay a:before{
+    left: 14px !important;
+    border-left-color: #fff;
+}
+.xeMusicPlayer4 .xeNext{
+    -webkit-border-radius:  0 5px 0 0;
+    -moz-border-radius:  0 5px 0 0;
+    border-radius:  0 5px 0 0;
+}
+.xeMusicPlayer4 .xeNext a:before {
+    left:20px !important;
+    background:#fff;
+}
+.xeMusicPlayer4 .xeNext a:after {
+    left:13px !important;
+    border-left-color:#fff;
+}
+.xeMusicPlayer4 .xePrevious{
+    -webkit-border-radius:  5px 0 0 0;
+    -moz-border-radius:  5px 0 0 0;
+    border-radius:  5px 0 0 0;
+}
+.xeMusicPlayer4 .xePrevious a:before {
+    left:15px !important;
+    background:#fff;
+}
+.xeMusicPlayer4 .xePrevious a:after {
+    left:10px !important;
+    border-right-color:#fff;
+}
+.xeMusicPlayer4  .xePlay.xeStop a:before{
+    left: 12px !important;
+    border-color:#fff;
+}
+.xeMusicPlayer4 .xeTime > p {
+    margin-top: 10px 0 0 0;
+    text-align: center;
+    color: #fff;
+}
+.xeMusicPlayer4 .xeHeader {
+    margin-top: 12px;
+}
+.xeMusicPlayer4 .xeTitle {
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    color: #FF0000;
+    font-size: 16px;
+}
+.xeMusicPlayer4 .xeTitleLink {
+    color: #FF0000;
+}
+.xeMusicPlayer4 .xeTitleBy {
+    margin: 0;
+    text-align: center;
+    color: #D8D8D8;
+}
+.xeMusicPlayer4 .xeBar{
+    width: 119px;
+    background: rgba(54, 54, 54, 0.7);
+    float: left;
+    cursor: pointer;
+    margin: 0 0 0 66px;
+    height: 7px;
+}
+.xeMusicPlayer4 .xeBarTime{
+    width: 117px;
+    height: 4px;
+    background: #FFF;
+    float: left;
+    margin: 2px 0 0 1px;
+    cursor: pointer;
+}
+
+/*************************************************************************/
+/* Theme 4 - Mode 2 */
+/*************************************************************************/
+.xeMusicPlayer4.xeMode2 .xeVolume
+{
+    margin: auto;
+    margin-top: 42px;
+    width: 24px;
+    height: 24px;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.8);
+
+    -webkit-border-radius:  40px;
+    -moz-border-radius:  40px;
+    border-radius:  40px;
+}
+.xeMusicPlayer4.xeMode2 .xeButton
+{
+    margin-top: 20px !important;
+}
+.xeMusicPlayer4.xeMode2 .xeVolume > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.xeMusicPlayer4.xeMode2 .xeVolume > ul > li{
+    height: 30px;
+    width: 30px;
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.xeMusicPlayer4.xeMode2 .xeVolume > ul > li.disabled{
+    opacity: 0.5;
+    cursor: inherit;
+}
+.xeMusicPlayer4.xeMode2 .xeVolume > ul > li.xeVolumeIcon{
+    margin: -3px 0 0 0;
+}
+.xeMusicPlayer4.xeMode2 .xeVolume > ul > li.xeVolumeMute{
+    margin: -3px 0 0 3px;
+}
+.xeMusicPlayer4.xeMode2 .xeVolumeOn:before{
+    border-color:#fff !important;
+}
+.xeMusicPlayer4.xeMode2 .xeVolumeMute:before {
+    border-color: #fff !important;
+}
+.xeMusicPlayer4.xeMode2 .xeVolumeMute:after {
+    border-top-color: #fff !important;
+}
+
+
+/*************************************************************************/
+/* ICON */
+/*************************************************************************/
+.xeButton > ul > li:before,
+.xeButton > ul > li:after,
+.xeButton > ul > li a:before,
+.xeButton > ul > li a:after,
+.xeVolume > ul > li:before,
+.xeVolume > ul > li:after,
+.xeVolume > ul > li a:before,
+.xeVolume > ul > li a:after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+/* VOLUME
+------------------------------------------------------------------------------------------------------------------------------- */
+.xeVolumeIcon a:before {
+    left:-2px !important;
+    border:7px solid transparent;
+    border-right-color:#fff;
+    margin-top:-7px;
+    background:transparent;
+}
+
+.xeVolumeIcon a:after {
+    left:4px !important;
+    width:4px;
+    height:6px;
+    margin-top:-3px;
+}
+/* Volume on */
+.xeVolumeOn:before {
+    left:12px !important;
+    width:6px;
+    height:6px;
+    margin-top:-5px;
+    border:4px double #fff;
+    border-width:4px 4px 0 0;
+    /* css3 */
+    -webkit-border-radius:0 15px 0 0;
+    -moz-border-radius:0 15px 0 0;
+    border-radius:0 15px 0 0;
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+/* PLAY
+------------------------------------------------------------------------------------------------------------------------------- */
+.xePlay a:before{
+    left: 2px !important;
+    border: 8px solid rgba(0, 0, 0, 0);
+    border-width: 8px 12px;
+    border-left-color: #e9e1ce;
+    margin-top: -8px;
+    background: rgba(0, 0, 0, 0);
+}
+/* PAUSE
+------------------------------------------------------------------------------------------------------------------------------- */
+.xePlay.xeStop a:before{
+    left: 2px !important;
+    width: 4px;
+    height: 14px;
+    border: 4px solid #e9e1ce;
+    border-width: 0 4px;
+    margin-top: -7px;
+    background: rgba(0, 0, 0, 0);
+}
+/* JUMP FORWARD
+------------------------------------------------------------------------------------------------------------------------------- */
+.xeNext{
+    margin-right: 0 !important;
+}
+.xeNext a:before {
+    left:9px !important;
+    width:2px;
+    height:10px;
+    margin-top:-4px;
+    background:#e9e1ce;
+}
+.xeNext a:after {
+    left:2px !important;
+    border:5px solid transparent;
+    border-width:5px 7px;
+    border-left-color:#e9e1ce;
+    margin-top:-4px;
+    background:transparent;
+}
+/* JUMP REWIND
+------------------------------------------------------------------------------------------------------------------------------- */
+.xePrevious a:before {
+    left:4px !important;
+    width:2px;
+    height:10px;
+    margin-top:-4px;
+    background:#e9e1ce;
+}
+.xePrevious a:after {
+    left:-1px !important;
+    border:5px solid transparent;
+    border-width:5px 7px;
+    border-right-color:#e9e1ce;
+    margin-top:-4px;
+    background:transparent;
+}
+/* Mute */
+.xeVolumeMute:before {
+    width:16px;
+    height:16px;
+    border:1px solid #e9e1ce;
+    margin-top:-9px;
+    /* css3 */
+    -webkit-border-radius:16px;
+    -moz-border-radius:16px;
+    border-radius:16px;
+}
+.xeVolumeMute:after {
+    width:18px;
+    border-top:1px solid #e9e1ce;
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
