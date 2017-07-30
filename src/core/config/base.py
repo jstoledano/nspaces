@@ -136,7 +136,7 @@ CONSTANCE_CONFIG = {
     'DOMAIN': ('yo.toledano.org', 'Dominio'),
 
     'LICENCE': ('https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es', 'Licencia del sitio'),
-    'LICENCE_IMAGE': ('https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png', 'Imagen de la licencia'),
+    'LICENCE_IMAGE': ('/assets/blog/img/80x15.png', 'Imagen de la licencia'),
 
     'AUTHOR': ('Javier Sanchez Toledano', 'Editor principal'),
     'AUTHOR_EMAIL': ('javier@toledano.org', 'Correo del editor principal'),
