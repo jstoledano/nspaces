@@ -1,6 +1,6 @@
 <aside class="read-next">
   {% if article.siguiente %}
-    <a class="read-next-story" style="background-image: url('{% if article.siguiente.cover %}{{ article.siguiente.cover }}{% else %}{{ VECINO_SIGUIENTE }}{% endif %}')" href="{{ article.siguiente.get_absolute_url }}">
+    <a class="read-next-story" style="background-image: url('{% if article.siguiente.cover %}{{ article.siguiente.cover }}{% else %}{{ config.VECINO_SIGUIENTE }}{% endif %}')" href="{{ article.siguiente.get_absolute_url }}">
       <section class="post">
         <h2>{{ article.siguiente.title }}</h2>
         <p>
@@ -10,7 +10,7 @@
     </a>
   {% endif %}
   {% if article.anterior %}
-    <a class="read-next-story prev" style="background-image: url('{% if article.anterior.cover %}{{ article.anterior.cover }}{% else %}{{ VECINO_ANTERIOR }}{% endif %}')" href="{{ article.anterior.get_absolute_url }}">
+    <a class="read-next-story prev" style="background-image: url('{% if article.anterior.cover %}{{ article.anterior.cover }}{% else %}{{ config.VECINO_ANTERIOR }}{% endif %}')" href="{{ article.anterior.get_absolute_url }}">
       <section class="post">
         <h2>{{ article.anterior.title }}</h2>
         <p>

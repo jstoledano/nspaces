@@ -1,12 +1,16 @@
 from .base import *    # noqa
 
 DEBUG = env.bool('DJANGO_DEBUG', default=True)
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
 MIDDLEWARE += [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware'
 ]
-INSTALLED_APPS += ('debug_toolbar', )
+INSTALLED_APPS += (
+    'debug_toolbar',
+    'constance.backends.database',
+)
 
 INTERNAL_IPS = ['127.0.0.1', ]
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
@@ -30,3 +34,4 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
 }
+CACHE_TTL = 60

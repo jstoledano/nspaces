@@ -1,10 +1,10 @@
 {% extends 'blog/base.html' %}
 
-{% block header_image %}{% if article.cover %}{{ article.cover }}{% else %}{{ COVER_IMG }}{% endif %}{% endblock %}
+{% block header_image %}{% if article.cover %}{{ article.cover }}{% else %}{{ config.COVER_IMG }}{% endif %}{% endblock %}
 {% block scroll %}{% endblock %}
 {% block template_type %}post-template{% endblock %}
 
-{% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock title %}
+{% block title %}{{ article.title|striptags }} - {{ config.SITENAME }}{% endblock title %}
 {% block meta_description %}{{ article.resumen }}{% endblock meta_description %}
 
 {% block metatwitter %}
@@ -12,35 +12,35 @@
   <meta property="og:locale" content="es_MX">
   <meta property="og:locale:alternate" content="es">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}">
-  <meta name="twitter:domain" content="{{ DOMAIN }}">
-  <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}">
-  <meta name="twitter:url" content="{{ article.get_absolute_url }}">
+  <meta name="twitter:site" content="@{{ config.TWITTER_USERNAME }}">
+  <meta name="twitter:domain" content="{{ config.DOMAIN }}">
+  <meta name="twitter:creator" content="@{{ config.TWITTER_USERNAME }}">
+  <meta name="twitter:url" content="{{ config.SITEURL }}{{ article.get_absolute_url }}">
   <meta name="twitter:title" content="{{ article.title|striptags }}">
   <meta name="twitter:description" content="{{ article.resumen }}">
-  <meta name="twitter:image" content="{% if article.cover %}{{ article.cover }}{% else %}{{ ARTICLE_COVER }}{% endif %}">
+  <meta name="twitter:image" content="{% if article.cover %}{{ article.cover }}{% else %}{{ config.ARTICLE_COVER }}{% endif %}">
   <!-- END metatwitter -->
 {% endblock metatwitter %}
 
 {% block metafacebook %}
   <!-- BEGIN metafacebook -->
-  <meta property="og:site_name" content="{{ SITENAME }} - {{ TAGLINE }}">
+  <meta property="og:site_name" content="{{ config.SITENAME }} - {{ config.TAGLINE }}">
   <meta property="og:locale" content="es_LA">
-  <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}">
+  <meta property="fb:app_id" content="{{ config.OPEN_GRAPH_FB_APP_ID }}">
   <meta property="og:type" content="article">
   <meta property="og:title" content="{{ article.title|striptags }}">
-  <meta property="og:image" content="{% if article.cover %}{{ article.cover }}{% else %}{{ ARTICLE_COVER }}{% endif %}">
+  <meta property="og:image" content="{% if article.cover %}{{ article.cover }}{% else %}{{ config.ARTICLE_COVER }}{% endif %}">
   <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="675">
   <meta property="og:description" content="{{ article.resumen }}">
-  <meta property="og:url" content="{{ article.get_absolute_url }}">
+  <meta property="og:url" content="{{ config.SITEURL }}{{ article.get_absolute_url }}">
   <!-- END metafacebook -->
 {% endblock metafacebook %}
 
 {%block metagoogle%}
   <!-- BEGIN metagoogle -->
-  <link rel="canonical" href="{{ article.get_absolute_url }}">
+  <link rel="canonical" href="{{ config.SITEURL }}{{ article.get_absolute_url }}">
   <!-- END metagoogle -->
 {%endblock metagoogle%}
 
@@ -49,8 +49,8 @@
   <meta name="dcterms.description" content="{{ article.resumen }}">
   <meta name="dcterms.language" content="es">
   <meta name="dcterms.type" content="post">
-  <meta name="dcterms.source" content="{{ SITEURL }}/{{ article.get_absolute_url }}">
-  <meta name="dcterms.publisher" content="{{ TWITTER_USERNAME }}">
+  <meta name="dcterms.source" content="{{ config.SITEURL }}{{ article.get_absolute_url }}">
+  <meta name="dcterms.publisher" content="{{ config.TWITTER_USERNAME }}">
 {% endblock metadcterms %}
 
 {% block html_head %}
@@ -62,22 +62,22 @@
     "publisher": "Yo, Toledano",
     "author": {
       "@type": "Person",
-      "name": "{{ AUTHOR }}",
-      "image": "{{ PROFILE_IMAGE_URL }}",
-      "url": "{{ SITEURL }}",
-      "description": "{{ article.about_author|striptags }}"
+      "name": "{{ config.autor.profile.name }}",
+      "image": "{{ config.PROFILE_IMAGE_URL }}",
+      "url": "{{ config.SITEURL }}",
+      "description": "{{ article.autor.profile.bio|striptags|safe|escapejs }}"
     },
     "headline": "{{ article.title|striptags  }}",
-    "url": "{{ article.get_absolute_url }}",
+    "url": "{{ config.SITEURL }}{{ article.get_absolute_url }}",
     "datePublished": "{{ article.pub_date|date:"c" }}",
     "dateModified": "{{ article.modificado|date:"c" }}",
     {% if article.cover %}
       "image": "{{ article.cover }}",
     {% else %}
-      "image": "{{ ARTICLE_COVER }}",
+      "image": "{{ config.ARTICLE_COVER }}",
     {% endif %}
     "keywords": "{{ article.category.slug }}{% for tag in article.tags.all %} tag-{{ tag.slug }}{% endfor %}",
-    "description": "{{ article.resumen|striptags }}"
+    "description": "{{ article.resumen|striptags|escapejs }}"
   }
 </script>
 <style media="screen">
@@ -242,13 +242,13 @@
     </section>
     <footer class="post-footer">
       <figure class="author-image">
-        <a class="img" href="{{ SITEURL }}" style="background-image: url('{{ PROFILE_IMAGE_URL }}')"><span class="hidden">{{ article.autor }}'s Picture</span></a>
+        <a class="img" href="{{ config.SITEURL }}" style="background-image: url('{{ config.PROFILE_IMAGE_URL }}')"><span class="hidden">{{ article.autor }}'s Picture</span></a>
       </figure>
       <section class="author">
         <h4>
           {{ article.autor.name }}
         </h4>
-        <p>{% if article.autor.profile.bio %}{{ article.autor.profile.bio }}{% else %}{{ AUTHOR_BIO }}{% endif %}</p>
+        <p>{% if article.autor.profile.bio %}{{ article.autor.profile.bio }}{% else %}{{ config.AUTHOR_BIO }}{% endif %}</p>
         <div class="author-meta">
           <i class="fa fa-map-marker"></i>
           {{ article.autor.profile.location }}
@@ -256,19 +256,19 @@
       </section>
       <section class="share">
         <h4>Comparte este artículo</h4>
-        <a class="twitter" href="https://twitter.com/share?text={{ article.title | urlencode | truncatechars:60 }}{{ ' via @' | urlencode }}{{ TWITTER_USERNAME }}&amp;url={{ SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <a class="twitter" href="https://twitter.com/share?text={{ article.title | urlencode | truncatechars:60 }}{{ ' via @' | urlencode }}{{ config.TWITTER_USERNAME }}&amp;url={{ config.SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <span class="fa-stack">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-twitter fa-stack-1x fa-inverse" style="color: #55acee;"></i>
           </span>
         </a>
-        <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ config.SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
           <span class="fa-stack">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-facebook fa-stack-1x fa-inverse" style="color: #3b5998;"></i>
           </span>
         </a>
-        <a class="google-plus" href="https://plus.google.com/share?url={{ SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <a class="google-plus" href="https://plus.google.com/share?url={{ config.SITEURL }}{{ article.get_absolute_url }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
           <span class="fa-stack">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-google-plus fa-stack-1x fa-inverse" style="color: #dd4b39;"></i>
