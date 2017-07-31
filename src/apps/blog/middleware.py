@@ -3,8 +3,8 @@ class AmpMiddleware(object):
         self.get_response = get_response
 
     def __call__(self, request):
-        request.is_amp = False
+        request.es_amp = False
         if '/amp/' in request.path:
-            request.is_amp = True
+            request.es_amp = True
         response = self.get_response(request)
         return response

@@ -68,6 +68,7 @@ class EntryDetail(DetailView, CacheMixin):
     template_name = 'blog/entry_detail.html'
 
 
+
 class CategoryList(ListView, CacheMixin):
     cache_timeout = CACHE_TTL
     model = Category
