@@ -52,5 +52,5 @@ urlpatterns = [
     url(r'^(?P<slug>[-\w]+)/$', CategoryDetail.as_view(), name="cat_detail"),
 
     # Esta es la última entrada porque captura todo
-    url(r'^(?P<cat>[-\w]+)/(?P<slug>[-\w]+)/$', EntryDetail.as_view(), name="entry_detail"),
+    url(r'^(?P<cat>[-\w]+)/(?P<slug>[-\w]+)/(?:.*)$', EntryDetail.as_view(), name="entry_detail"),
 ]
