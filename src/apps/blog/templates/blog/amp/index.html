@@ -77,7 +77,7 @@
     <!-- Start Fullpage Hero -->
     <figure class="ampstart-image-fullpage-hero m0 relative mb4">
       <amp-img width="404" height="720" layout="responsive" src="{% static 'blog/img/amp_cover.jpg' %}" media="(max-width: 415px)"></amp-img>
-      <amp-img height="720" layout="fixed-height" src="{% static 'blog/img/cover_amp.jpg' %}" media="(min-width: 416px)"></amp-img>
+      <amp-img height="720" layout="fixed-height" src="{% static 'blog/img/category_add_95d30aaa88ef6cdcb41daa7f39c02543.jpg' %}" media="(min-width: 416px)"></amp-img>
       <figcaption class="absolute top-0 right-0 bottom-0 left-0">
         <header class="p3">
           <h1 class="ampstart-fullpage-hero-heading mb3">
@@ -106,10 +106,10 @@
             <li class="col-12 sm-col-4 md-col-4 lg-col-4 pr2 py2">
               <!-- Start Image with Caption -->
               <figure class="ampstart-image-with-caption m0 relative mb4">
-                <amp-img src="{% if entry.cover %}{{ entry.cover }}{% else %}{% static 'blog/img/amp_mini_article.png' %}{% endif %}" width="233" height="202" layout="responsive" class=""></amp-img>
+                <amp-img src="{% if entry.cover %}{{ entry.cover }}{% else %}{% static 'blog/img/amp_mini_article.png' %}{% endif %}" width="150" height="143" layout="responsive" class=""></amp-img>
                 <figcaption class="h5 mt1 px3">
-                  <a class="py3 text-decoration-none center h5"><strong role="bold">{{ entry.title }}</strong></a>
-                  {{ entry.resumen|truncatechars:65 }}
+                  <a class="py3 text-decoration-none center h5" href="% url 'entry_detail' cat=entry.category.slug slug=entry.slug %}amp/"><strong role="bold">{{ entry.title }}</strong></a>
+                  {{ entry.resumen|truncatechars:80 }}
                 </figcaption>
               </figure>
               <!-- End Image with Caption -->
