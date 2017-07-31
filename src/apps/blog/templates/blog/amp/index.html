@@ -1,25 +1,41 @@
 <!doctype html>
-<html amp lang="es">
+<html ⚡ lang="es">
   <head>
     <meta charset="utf-8">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <title>Hola, AMP</title>
-    <link rel="canonical" href="http://example.ampproject.org/article-metadata.html">
+    <link rel="canonical" href="{{ config.SITEURL }}">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <script type="application/ld+json">
       {
         "@context": "http://schema.org",
         "@type": "NewsArticle",
-        "headline": "Open-source framework for publishing content",
-        "datePublished": "2015-10-07T12:02:41Z",
+        "headline": "{{ config.SITENAME }} - {{ config.TAGLINE }}",
+        "datePublished": "{{ articles.0.pub_date|date:'c' }}",
         "image": [
-          "{{ config.SITEURL }}{{ config.ARTICLE_COVER }}"
+          "{{ config.ARTICLE_COVER }}"
         ]
       }
     </script>
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+      /* Cualquier estilo personalizado va aquí */
+      body {
+        background-color: white;
+      }
+      amp-img {
+        background-color: gray;
+        border: 1px solid black;
+      }
+    </style>
   </head>
   <body>
-    <h1>Bienvenido a la web móvil</h1>
+    <amp-img src="{{ config.ARTICLE_COVER }}" alt="Bienvenido" height="400" width="800"></amp-img>
+    <h1>{{ config.SITENAME }}</h1>
+    <h3>{{ config.TAGLINE }}</h3>
+    <h3>Contenido</h3>
+    <ul>{% for article in articles %}
+      <li>{{ article.title }}</li>
+    {% endfor %}</ul>
   </body>
 </html>

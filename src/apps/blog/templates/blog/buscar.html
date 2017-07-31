@@ -2,7 +2,13 @@
 {% load taggit_templatetags2_tags %}
 
 {% block content %}
-<main id="content" class="content" role="main" itemprop="mainContentOfPage" itemscope="" itemtype="http://schema.org/Blog">
+<main
+  id="content"
+  class="content"
+  role="main"
+  itemprop="mainContentOfPage"
+  itemscope=""
+  itemtype="http://schema.org/Blog">
   <article class="post">
     {% include 'blog/partials/_search.html' %}
     <script>
@@ -11,8 +17,7 @@
         var gcse = document.createElement('script');
         gcse.type = 'text/javascript';
         gcse.async = true;
-        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-            '//cse.google.com/cse.js?cx=' + cx;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(gcse, s);
       })();
@@ -20,5 +25,13 @@
     <gcse:searchresults-only></gcse:searchresults-only>
     {% include 'blog/partials/_search.html' %}
   </article>
+  <style>
+    .gsc-result .gs-title {
+      height: 1.5em;
+    }
+    .gsc-table-result, .gs-promotion-table {
+      margin: 0 0 1.5em 0 !important;
+    }
+  </style>
 </main>
 {% endblock content %}
