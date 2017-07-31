@@ -5,7 +5,7 @@ CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
 MIDDLEWARE += [
     # 'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware'
+    # 'rollbar.contrib.django.middleware.RollbarNotifierMiddleware'
 ]
 INSTALLED_APPS += (
     # 'debug_toolbar',

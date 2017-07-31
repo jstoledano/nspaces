@@ -38,7 +38,7 @@ class CacheMixin(object):
 class EntryList(ListView, CacheMixin):
     cache_timeout = CACHE_TTL
     model = Entry
-    paginate_by = 5
+    paginate_by = 6
     make_object_list = True
     context_object_name = 'articles'
     paginate_orphans = 1

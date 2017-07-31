@@ -7,6 +7,7 @@
   {% if article %}
     <!-- begin Article -->
     <link rel="canonical" href="{{ config.SITEURL }}{{ article.get_absolute_url }}">
+    <link rel="amphtml" href="{{ config.SITEURL }}{{ article.get_absolute_url }}amp/">
     <link rel="dns-prefetch" href="//disqus.com"/>
     <link rel="dns-prefetch" href="//a.disquscdn.com"/>
     <link rel="dns-prefetch" href="//{{ config.DISQUS_SITENAME }}.disqus.com"/>
@@ -22,7 +23,7 @@
     {% endif %}
     <!-- ./end article -->
   {% elif page %}
-    <link rel="canonical" href="{{ page.url }}">
+    <link rel="canonical" href="{{ config.SITEURL }}{{ page.url }}">
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{ page.title }}">
     <meta property="og:url" content="{{ page.url }}">
