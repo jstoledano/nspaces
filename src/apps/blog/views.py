@@ -41,12 +41,14 @@ class EntryList(ListView, CacheMixin):
     paginate_by = 5
     make_object_list = True
     context_object_name = 'articles'
-    template_name = 'blog/index.html'
     paginate_orphans = 1
 
     def get_queryset(self):
         return Entry.objects.filter(status=Entry.LIVE_STATUS) \
             .order_by('-pub_date', '-id', )
+
+    def get_template_names(self):
+        return ['%s/index.html' % ('blog/amp' if self.request.es_amp else 'blog')]
 
 
 class Archivo(TemplateView, CacheMixin):
@@ -65,8 +67,9 @@ class EntryDetail(DetailView, CacheMixin):
     cache_timeout = CACHE_TTL
     model = Entry
     context_object_name = 'article'
-    template_name = 'blog/entry_detail.html'
 
+    def get_template_names(self):
+        return ['%s/entry_detail.html' % ('blog/amp' if self.request.es_amp else 'blog')]
 
 
 class CategoryList(ListView, CacheMixin):

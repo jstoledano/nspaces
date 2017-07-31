@@ -12,6 +12,6 @@ __author__ = 'toledano'
 def variables(request):
     return {
         'TEMAS': Category.objects.all(),
-        'base_template': 'blog/amp' if request.es_amp else 'blog',
+        'template_base': 'blog/amp' if request.es_amp else 'blog',
         'es_amp': request.es_amp,
     }
