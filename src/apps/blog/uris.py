@@ -27,6 +27,7 @@ sitemaps = {"blog": BlogSitemap}
 urlpatterns = [
     # Portada
     url(r'^$', EntryList.as_view(), name='index'),
+    url(r'^amp/$', EntryList.as_view(), name='index_amp'),
 
     # robots.txt y otros archivos de texto
     url(r'^robots\.txt$',
