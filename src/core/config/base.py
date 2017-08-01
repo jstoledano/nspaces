@@ -45,6 +45,7 @@ LOCAL_APPS = [
 INSTALLED_APPS = ADMIN_TOOLS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'apps.blog.middleware.AmpMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -127,6 +128,14 @@ ADMIN_TOOLS_INDEX_DASHBOARD = 'apps.dashboard.panels.CustomIndexDashboard'
 TAGGIT_TAGCLOUD_MIN = 1
 TAGGIT_TAGCLOUD_MAX = 6
 TAGGIT_LIMIT = 200
+
+# ^https?:\/\/(localhost|yo\.toledano\.org|disqus\.toledano\.org)
+
+CORS_ORIGIN_REGEX_WHITELIST = (
+    'media.toledano.org'
+    'yo.toledano.org',
+    'disqus.toledano.org'
+)
 
 CONSTANCE_IGNORE_ADMIN_VERSION_CHECK = True
 CONSTANCE_CONFIG = {
