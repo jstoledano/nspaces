@@ -100,6 +100,7 @@ class EntryDetail(DetailView, CacheMixin):
         self.object = self.get_object()
         context = self.get_context_data(object=self.object)
         context['Access-Control-Allow-Origin'] = 'http://yo.toledano.org'
+        context['X-Powered-By'] = 'nSpaces & Django'
         return self.render_to_response(context)
 
     def get_template_names(self):
