@@ -78,7 +78,7 @@ class EntryDetail(DetailView, CacheMixin):
 class CategoryList(ListView, CacheMixin):
     cache_timeout = CACHE_TTL
     model = Category
-    paginate_by = 5
+    paginate_by = 6
     make_object_list = True
     context_object_name = 'cats'
 
