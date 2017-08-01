@@ -25,6 +25,7 @@ function receiveMessage(event)
 </script>
 <script>
   console.log(`nspaces: ${window.document.getElementById('content').attributes["data-idx"].value}`)
+  console.log(`nspaces: ${window.parent.document.getElementById('content').attributes["data-idx"].value}`)
   var disqus_config = function () {
     this.page.url = window.location.href.slice(0,-4);
     this.page.identifier = window.document.getElementById('content').attributes["data-idx"].value;
