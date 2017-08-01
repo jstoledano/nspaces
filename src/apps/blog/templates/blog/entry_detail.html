@@ -150,6 +150,7 @@
         </a>
       </section>
       {% include 'blog/partials/_search.html' %}
+      <!-- Comentarios: {{ article.enable_comments }} -->
       {% if article.enable_comments %}
         {% include 'blog/partials/_comments.html' %}
       {% endif %}
