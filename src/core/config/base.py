@@ -35,7 +35,8 @@ THIRD_PARTY_APPS = [
     'authtools',
     'taggit',
     'taggit_templatetags2',
-    'constance'
+    'constance',
+    'corsheaders'
 ]
 LOCAL_APPS = [
     'apps.profiles.config.UsersConfig',
