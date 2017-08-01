@@ -19,3 +19,8 @@ def current(request, pattern):
             return 'nav-current'
     except:
         return ''
+
+
+@register.filter
+def disqus_hash(value):
+    return value.replace("/","_")

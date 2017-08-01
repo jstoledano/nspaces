@@ -30,7 +30,7 @@ function receiveMessage(event)
      */
     var disqus_config = function () {
         this.page.url = window.location.href.slice(0,-4);  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = window.location.href.slice(0,-4); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.identifier = window.location.pathname.replace(/\//g, '_').slice(0,-4); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() {  // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');

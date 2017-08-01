@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load blog_extra %}
 <!doctype html>
 <html ⚡ lang="es">
   <head>
@@ -54,8 +55,8 @@
             layout="responsive"
             sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
             frameborder="0"
-            src="https://media.toledano.org/assets/js/amp_disqus.js">
-{#           <div overflow tabindex="0" role="button" aria-label="Read more">Comentarios...</div>#}
+            src="https://media.toledano.org/assets/js/amp_disqus.js#{{ article.get_absolute_url|disqus_hash }}">
+           <div overflow tabindex="0" role="button" aria-label="Read more">Comentarios...</div>
           </amp-iframe>
         </div>
 
