@@ -139,6 +139,8 @@ class Entry(Trazabilidad):
         return self.title
 
     def save(self, force_insert=False, force_update=False, **kwargs):
+        from django.core.cache import cache
+
         self.body_html = markdown.markdown(
             self.body,
             output_format='html5',
@@ -159,6 +161,7 @@ class Entry(Trazabilidad):
                 lazy_ol=True,
                 extensions=MD_EXT
             )
+        cache.clear()
         super(Entry, self).save(force_insert, force_update)
 
     def resumen(self):
