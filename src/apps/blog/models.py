@@ -132,7 +132,7 @@ class Entry(Trazabilidad):
         verbose_name_plural = 'Entradas'
         verbose_name = 'Entrada'
         ordering = ['-id', '-pub_date']
-        unique_together = ('slug', 'pub_date')
+        unique_together = ('slug', 'category')
         get_latest_by = 'pub_date'
 
     def __str__(self):
