@@ -1,5 +1,18 @@
 <section>
 <h2><i class="fa fa-comments"></i> Comentarios</h2>
 <div id="disqus_thread"></div>
-<script type="text/javascript">var disqus_identifier = "{{ article.get_absolute_url }}";(function(){var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//{{ config.DISQUS_SITENAME }}.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script>
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = {{ config.SITEUL }}{{ article.get_absolute_url }};  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = {{ article.get_absolute_url|disqus_hash }}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//{{ config.DISQUS_SITENAME }}.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+  </script>
 </section>
