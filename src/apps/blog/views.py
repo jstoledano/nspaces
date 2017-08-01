@@ -38,20 +38,21 @@ class CacheMixin(object):
 class EntryList(ListView, CacheMixin):
     cache_timeout = CACHE_TTL
     model = Entry
-    paginate_by = 5
+    paginate_by = 6
     make_object_list = True
     context_object_name = 'articles'
-    template_name = 'blog/index.html'
     paginate_orphans = 1
 
     def get_queryset(self):
         return Entry.objects.filter(status=Entry.LIVE_STATUS) \
             .order_by('-pub_date', '-id', )
 
+    def get_template_names(self):
+        return ['%s/index.html' % ('blog/amp' if self.request.es_amp else 'blog')]
+
 
 class Archivo(TemplateView, CacheMixin):
     cache_timeout = CACHE_TTL
-    template_name = 'blog/archivo.html'
 
     def get_context_data(self, **kwargs):
         ctx = super(Archivo, self).get_context_data(**kwargs)
@@ -60,12 +61,18 @@ class Archivo(TemplateView, CacheMixin):
             '-pub_date', '-id').filter(status=Entry.LIVE_STATUS)
         return ctx
 
+    def get_template_names(self):
+        return ['%s/archivo.html' % ('blog/amp' if self.request.es_amp else 'blog')]
+
+
 
 class EntryDetail(DetailView, CacheMixin):
     cache_timeout = CACHE_TTL
     model = Entry
     context_object_name = 'article'
-    template_name = 'blog/entry_detail.html'
+
+    def get_template_names(self):
+        return ['%s/entry_detail.html' % ('blog/amp' if self.request.es_amp else 'blog')]
 
 
 class CategoryList(ListView, CacheMixin):
@@ -75,6 +82,10 @@ class CategoryList(ListView, CacheMixin):
     make_object_list = True
     context_object_name = 'cats'
 
+    def get_template_names(self):
+        return ['%s/category_list.html' % ('blog/amp' if self.request.es_amp else 'blog')]
+
+
 
 class CategoryDetail(ListView, CacheMixin):
     cache_timeout = CACHE_TTL
@@ -82,7 +93,6 @@ class CategoryDetail(ListView, CacheMixin):
     context_object_name = 'cat'
     allow_empty = True
     paginate_by = 5
-    template_name = 'blog/category_detail.html'
 
     def __init__(self, **kwargs):
         self.cat = ''
@@ -98,6 +108,9 @@ class CategoryDetail(ListView, CacheMixin):
         ctx = super(CategoryDetail, self).get_context_data(**kwargs)
         ctx['cat'] = self.cat
         return ctx
+
+    def get_template_names(self):
+        return ['%s/category_detail.html' % ('blog/amp' if self.request.es_amp else 'blog')]
 
 
 class TagCloud(TemplateView, CacheMixin):

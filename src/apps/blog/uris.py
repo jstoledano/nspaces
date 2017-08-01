@@ -27,6 +27,7 @@ sitemaps = {"blog": BlogSitemap}
 urlpatterns = [
     # Portada
     url(r'^$', EntryList.as_view(), name='index'),
+    url(r'^amp/$', EntryList.as_view(), name='amp_index'),
 
     # robots.txt y otros archivos de texto
     url(r'^robots\.txt$',
@@ -38,6 +39,7 @@ urlpatterns = [
         TemplateView.as_view(template_name='blog/textos/keybase.txt', content_type='text/plain'), name='keybase'),
 
     # Páginas sin relación con modelos en apps.blog
+    url(r'^archivo/amp/$', Archivo.as_view(), name='amp_archivo'),
     url(r'^archivo/$', Archivo.as_view(), name='archivo'),
     url(r'^buscar/$', TemplateView.as_view(template_name='blog/buscar.html'), name='buscar'),
     url(r'^rss/$', BlogFeed(), name='rss_feed'),
@@ -49,8 +51,10 @@ urlpatterns = [
 
     # Las categorías entran en conflicto con las etiquetas
     url(r'^cats/$', CategoryList.as_view(), name='cats'),
+    url(r'^(?P<slug>[-\w]+)/amp/$', CategoryDetail.as_view(), name="amp_cat_detail"),
     url(r'^(?P<slug>[-\w]+)/$', CategoryDetail.as_view(), name="cat_detail"),
 
     # Esta es la última entrada porque captura todo
+    url(r'^(?P<cat>[-\w]+)/(?P<slug>[-\w]+)/amp/$', EntryDetail.as_view(), name="amp_entry_detail"),
     url(r'^(?P<cat>[-\w]+)/(?P<slug>[-\w]+)/$', EntryDetail.as_view(), name="entry_detail"),
 ]

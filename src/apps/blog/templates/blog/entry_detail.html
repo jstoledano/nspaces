@@ -83,7 +83,7 @@
 {% endblock html_head %}
 
 {% block header_title %}
-  <h1 class="page-title" itemprop="headline">{{ article.title }}</h1>
+  <h1 class="page-title" itemprop="headline">{{ article.title }} {% if es_amp %}(versión AMP){% endif %}</h1>
   <h2
     class="page-description"
     itemprop="description">

@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block html_head %}
+  <link rel="amphtml" href="{{ config.SITEURL }}{% url 'amp_index' %}">
   {% if page_obj.number == 1 %}
     <style media="screen">
       .post-head.main-header {
