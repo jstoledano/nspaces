@@ -6,12 +6,16 @@
 #       autor: Javier Sanchez Toledano
 #       fecha: jueves, 18 de junio de 2015
 
+from functools import wraps
+
 from django.conf import settings
 from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.contrib.sitemaps import Sitemap
 from django.contrib.syndication.views import Feed
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
+from django.utils.decorators import available_attrs
+from django.utils.decorators import method_decorator
 from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
@@ -23,6 +27,28 @@ from apps.blog.models import Entry
 from apps.blog.models import Category
 
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
+
+
+def header(name, value):
+    # View decorator that sets a response header.
+    #
+    # Example:
+    # @header('X-Powered-By', 'Django')
+    # def view(request, ...):
+    #     ....
+    #
+    # For class-based views use:
+    # @method_decorator(header('X-Powered-By', 'Django'))
+    # def get(self, request, ...)
+    #     ...
+    def decorator(func):
+        @wraps(func, assigned=available_attrs(func))
+        def inner(request, *args, **kwargs):
+            response = func(request, *args, **kwargs)
+            response[name] = value
+            return response
+        return inner
+    return decorator
 
 
 class CacheMixin(object):
@@ -65,11 +91,16 @@ class Archivo(TemplateView, CacheMixin):
         return ['%s/archivo.html' % ('blog/amp' if self.request.es_amp else 'blog')]
 
 
-
 class EntryDetail(DetailView, CacheMixin):
     cache_timeout = CACHE_TTL
     model = Entry
     context_object_name = 'article'
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data(object=self.object)
+        context['Access-Control-Allow-Origin'] = 'http://yo.toledano.org'
+        return self.render_to_response(context)
 
     def get_template_names(self):
         return ['%s/entry_detail.html' % ('blog/amp' if self.request.es_amp else 'blog')]
