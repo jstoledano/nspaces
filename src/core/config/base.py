@@ -29,7 +29,8 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sitemaps'
+    'django.contrib.sitemaps',
+    'django.contrib.sites'
 ]
 THIRD_PARTY_APPS = [
     'authtools',
@@ -122,6 +123,7 @@ MEDIA_ROOT = APPS_DIR.child('media')
 MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'profiles.User'
+SITE_ID = '1'
 
 ADMIN_TOOLS_MENU = 'apps.dashboard.menu.CustomMenu'
 ADMIN_TOOLS_INDEX_DASHBOARD = 'apps.dashboard.panels.CustomIndexDashboard'
