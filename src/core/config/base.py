@@ -131,11 +131,7 @@ TAGGIT_LIMIT = 200
 
 # ^https?:\/\/(localhost|yo\.toledano\.org|disqus\.toledano\.org)
 
-CORS_ORIGIN_REGEX_WHITELIST = (
-    'media.toledano.org'
-    'yo.toledano.org',
-    'disqus.toledano.org'
-)
+CORS_ORIGIN_REGEX_WHITELIST = (r'https?://(localhost|127\.0\.0\.1|.*\.toledano\.org)(:[0-9]+)?', )
 
 CONSTANCE_IGNORE_ADMIN_VERSION_CHECK = True
 CONSTANCE_CONFIG = {
