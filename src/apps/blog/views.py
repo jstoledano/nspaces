@@ -86,13 +86,12 @@ class CategoryList(ListView, CacheMixin):
         return ['%s/category_list.html' % ('blog/amp' if self.request.es_amp else 'blog')]
 
 
-
 class CategoryDetail(ListView, CacheMixin):
     cache_timeout = CACHE_TTL
     model = Entry
     context_object_name = 'cat'
     allow_empty = True
-    paginate_by = 5
+    paginate_by = 6
 
     def __init__(self, **kwargs):
         self.cat = ''
