@@ -72,9 +72,9 @@ class EntryDetail(DetailView, CacheMixin):
     context_object_name = 'article'
 
     def dispatch(self, request, *args, **kwargs):
-        response = super(EntryDetail, self).dispatch(*args, **kwargs)
-        response['Access-Control-Allow-Origin'] = 'https://yo.toledano.org'
-        return response
+        request = super(EntryDetail, self).dispatch(*args, **kwargs)
+        request['Access-Control-Allow-Origin'] = 'https://yo.toledano.org'
+        return request
 
     def get_template_names(self):
         return ['%s/entry_detail.html' % ('blog/amp' if self.request.es_amp else 'blog')]
