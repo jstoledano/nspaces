@@ -1,7 +1,7 @@
 <nav class="pagination" role="navigation">
   {% if page_obj.has_previous %}
     {% if page_obj.previous_page_number == 1 %}
-      <a rel="prev" class="newer-posts" href="{% url 'index' %}">&larr; Portada</a>
+      <a rel="prev" class="newer-posts" href="?page={{ page_obj.previous_page_number }}">&larr; Inicio</a>
     {% else %}
       <a rel="prev" class="newer-posts" href="?page={{ page_obj.previous_page_number }}">&larr; Artículos nuevos</a>
     {% endif %}
