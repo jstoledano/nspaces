@@ -35,7 +35,7 @@
             </span>
           </h1>
           <span class="ampstart-image-credit h4">
-            {{ cat.description_html|striptags }}<br> <small class="ahora-con-amp">versión ⚡amp</small>
+            {{ cat.description_html|striptags }}<br> <small class="ahora-con-amp">versión ⚡amp &mdash; <a href="{% url 'cat_detail' slug=cat.slug %}">versión 🖥escritorio</a></small>
           </span>
         </header>
         <footer class="absolute left-0 right-0 bottom-0">

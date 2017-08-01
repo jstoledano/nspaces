@@ -7,7 +7,7 @@
   {% if article %}
     <!-- begin Article -->
     <link rel="canonical" href="{{ config.SITEURL }}{{ article.get_absolute_url }}">
-    <link rel="amphtml" href="{{ config.SITEURL }}{{ article.get_absolute_url }}amp/">
+    <link rel="amphtml" href="{{ config.SITEURL }}{% url 'amp_entry_detail' cat=article.category.slug slug=article.slug %}">
     <link rel="dns-prefetch" href="//disqus.com"/>
     <link rel="dns-prefetch" href="//a.disquscdn.com"/>
     <link rel="dns-prefetch" href="//{{ config.DISQUS_SITENAME }}.disqus.com"/>
