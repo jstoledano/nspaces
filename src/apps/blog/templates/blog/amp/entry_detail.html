@@ -27,7 +27,7 @@
     {% include 'blog/amp/_amp-sidebar.html' %}
     <!-- End Navbar -->
 
-    <main id="content" role="main" class="" aria-label="{{ article.idx }}">
+    <main id="content" role="main" class="" data-idx="{{ article.idx }}">
       <article class="recipe-article">
         <header>
           <span class="ampstart-subtitle block px3 pt2 mb2"><a href="{% url 'amp_cat_detail' slug=article.category.slug %}">{{ article.category }}</a></span>
@@ -55,7 +55,7 @@
             layout="responsive"
             sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-popups-to-escape-sandbox allow-forms"
             frameborder="0"
-            src="https://media.toledano.org/assets/js/disqus-v1.0.6.html?identifier={{ article.idx }}&url={{ config.SITEURL|urlencode }}{{ article.get_absolute_url|urlencode }}&disqus_title={{ article.title|urlencode }}&disqus_name=https%3A%2F%2Ftoledano.disqus.com%2Fembed.js">
+            src="https://media.toledano.org/assets/js/disqus-v1.0.7.html#{{ article.idx }}">
           </amp-iframe>
         </div>
 
