@@ -154,13 +154,14 @@
       {% if article.enable_comments %}
         {% include 'blog/partials/_comments.html' %}
       {% endif %}
+      <iframe src="https://disqus.toledano.org/disqus-v1.0.10.html#{{ article.idx }}"></iframe>
+
     </footer>
   </article>
 </main>
 {% include 'blog/partials/_vecinos.html' %}
 {% endblock content %}
 {% block css_diferido %}
-  <script src="https://disqus.toledano.org/disqus-v1.0.10.html#{{ article.idx }}"></script>
 <style media="screen">
   {% if article.featured %}
     .post-head.main-header {
