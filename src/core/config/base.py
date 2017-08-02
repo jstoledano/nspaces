@@ -15,6 +15,11 @@ ADMINS = (
 MANAGERS = ADMINS
 
 # Aplicaciones
+VIEWFLOW_APPS = [
+    'material',
+    'material.admin'
+]
+
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,7 +42,7 @@ LOCAL_APPS = [
     'apps.blog.config.BlogConfig'
 ]
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = VIEWFLOW_APPS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -69,8 +74,7 @@ TEMPLATES = [
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader',
-                'admin_tools.template_loaders.Loader'
+                'django.template.loaders.app_directories.Loader'
             ]
         },
     },
@@ -129,7 +133,7 @@ CONSTANCE_CONFIG = {
     'SITENAME': ('Yo, Toledano', 'Nombre del sitio'),
     'TAGLINE': ('Oh tiempo tus piramides', 'Descripción del sitio'),
     'SITEURL': ('https://yo.toledano.org', 'Dirección web del sitio'),
-    'RSS_DESCRIPTION': ('Artículos recientes en Yo, Toledano', 'Descripcieon para la fuente RSS'),
+    'RSS_DESCRIPTION': ('Artículos recientes en Yo, Toledano', 'Descripción para la fuente RSS'),
     'DOMAIN': ('yo.toledano.org', 'Dominio'),
 
     'LICENCE': ('https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es', 'Licencia del sitio'),
@@ -160,7 +164,9 @@ CONSTANCE_CONFIG = {
     'OPEN_GRAPH_FB_APP_ID': ('112184015464389', 'Identificador de la App de Facebook'),
 
     'VECINO_ANTERIOR': ('https://media.toledano.org/casper/img/anterior.jpg', 'URL de la imagen del artículo anterior'),
-    'VECINO_SIGUIENTE':('https://media.toledano.org/casper/img/siguiente.jpg', 'URL de la imagen del artículo siguiente')
+    'VECINO_SIGUIENTE': (
+        'https://media.toledano.org/casper/img/siguiente.jpg', 'URL de la imagen del artículo siguiente'
+    )
 }
 
 CONSTANCE_CONFIG_FIELDSETS = OrderedDict([
