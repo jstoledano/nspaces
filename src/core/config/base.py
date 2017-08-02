@@ -15,13 +15,6 @@ ADMINS = (
 MANAGERS = ADMINS
 
 # Aplicaciones
-ADMIN_TOOLS = [
-    'admin_tools',
-    'admin_tools.theming',
-    'admin_tools.menu',
-    'admin_tools.dashboard'
-]
-
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,7 +37,7 @@ LOCAL_APPS = [
     'apps.blog.config.BlogConfig'
 ]
 
-INSTALLED_APPS = ADMIN_TOOLS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -125,14 +118,10 @@ MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'profiles.User'
 SITE_ID = '1'
 
-ADMIN_TOOLS_MENU = 'apps.dashboard.menu.CustomMenu'
-ADMIN_TOOLS_INDEX_DASHBOARD = 'apps.dashboard.panels.CustomIndexDashboard'
-
 TAGGIT_TAGCLOUD_MIN = 1
 TAGGIT_TAGCLOUD_MAX = 6
 TAGGIT_LIMIT = 200
 
-# CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_REGEX_WHITELIST = (r'https?://(localhost|127\.0\.0\.1|.*\.toledano\.org)(:[0-9]+)?', )
 
 CONSTANCE_IGNORE_ADMIN_VERSION_CHECK = True
