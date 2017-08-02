@@ -16,7 +16,7 @@ MANAGERS = ADMINS
 
 # Aplicaciones
 ADMIN_DASHBOARD = [
-
+    'flat_responsive',
 ]
 
 DJANGO_APPS = [
@@ -126,6 +126,8 @@ TAGGIT_TAGCLOUD_MAX = 6
 TAGGIT_LIMIT = 200
 
 CORS_ORIGIN_REGEX_WHITELIST = (r'https?://(localhost|127\.0\.0\.1|.*\.toledano\.org)(:[0-9]+)?', )
+
+GRAPPELLI_ADMIN_TITLE = 'Yo, Toledano'
 
 CONSTANCE_IGNORE_ADMIN_VERSION_CHECK = True
 CONSTANCE_CONFIG = {
