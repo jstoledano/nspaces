@@ -15,11 +15,9 @@ ADMINS = (
 MANAGERS = ADMINS
 
 # Aplicaciones
-ADMIN_TOOLS = [
-    'admin_tools',
-    'admin_tools.theming',
-    'admin_tools.menu',
-    'admin_tools.dashboard'
+VIEWFLOW_APPS = [
+    'material',
+    'material.admin'
 ]
 
 DJANGO_APPS = [
@@ -44,7 +42,7 @@ LOCAL_APPS = [
     'apps.blog.config.BlogConfig'
 ]
 
-INSTALLED_APPS = ADMIN_TOOLS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = VIEWFLOW_APPS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -76,8 +74,7 @@ TEMPLATES = [
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader',
-                'admin_tools.template_loaders.Loader'
+                'django.template.loaders.app_directories.Loader'
             ]
         },
     },
@@ -125,14 +122,10 @@ MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'profiles.User'
 SITE_ID = '1'
 
-ADMIN_TOOLS_MENU = 'apps.dashboard.menu.CustomMenu'
-ADMIN_TOOLS_INDEX_DASHBOARD = 'apps.dashboard.panels.CustomIndexDashboard'
-
 TAGGIT_TAGCLOUD_MIN = 1
 TAGGIT_TAGCLOUD_MAX = 6
 TAGGIT_LIMIT = 200
 
-# CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_REGEX_WHITELIST = (r'https?://(localhost|127\.0\.0\.1|.*\.toledano\.org)(:[0-9]+)?', )
 
 CONSTANCE_IGNORE_ADMIN_VERSION_CHECK = True
@@ -140,7 +133,7 @@ CONSTANCE_CONFIG = {
     'SITENAME': ('Yo, Toledano', 'Nombre del sitio'),
     'TAGLINE': ('Oh tiempo tus piramides', 'Descripción del sitio'),
     'SITEURL': ('https://yo.toledano.org', 'Dirección web del sitio'),
-    'RSS_DESCRIPTION': ('Artículos recientes en Yo, Toledano', 'Descripcieon para la fuente RSS'),
+    'RSS_DESCRIPTION': ('Artículos recientes en Yo, Toledano', 'Descripción para la fuente RSS'),
     'DOMAIN': ('yo.toledano.org', 'Dominio'),
 
     'LICENCE': ('https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es', 'Licencia del sitio'),
@@ -171,7 +164,9 @@ CONSTANCE_CONFIG = {
     'OPEN_GRAPH_FB_APP_ID': ('112184015464389', 'Identificador de la App de Facebook'),
 
     'VECINO_ANTERIOR': ('https://media.toledano.org/casper/img/anterior.jpg', 'URL de la imagen del artículo anterior'),
-    'VECINO_SIGUIENTE':('https://media.toledano.org/casper/img/siguiente.jpg', 'URL de la imagen del artículo siguiente')
+    'VECINO_SIGUIENTE': (
+        'https://media.toledano.org/casper/img/siguiente.jpg', 'URL de la imagen del artículo siguiente'
+    )
 }
 
 CONSTANCE_CONFIG_FIELDSETS = OrderedDict([

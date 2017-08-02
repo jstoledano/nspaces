@@ -18,9 +18,10 @@ class EntryAdmin(admin.ModelAdmin):     # pylint: disable=R0904
     prepopulated_fields = {"slug": ("title",)}
     search_fields = ["title"]
     date_hierarchy = 'pub_date'
-    list_display = ('title', 'category', 'status', 'pub_date')
+    list_display = ('title', 'category', 'pub_date')
     list_filter = ('category', 'status')
     list_select_related = ('category',)
+    icon = '<i class="material-icons">pages</i>'
 
     def save_model(self, request, obj, form, change):
         obj.autor = request.user
@@ -29,6 +30,7 @@ class EntryAdmin(admin.ModelAdmin):     # pylint: disable=R0904
 
 class CategoryAdmin (admin.ModelAdmin):   # pylint: disable=R0904
     prepopulated_fields = {'slug': ['title']}
+    icon = '<i class="material-icons">folder</i>'
 
     def save_model(self, request, obj, form, change):
         obj.save()
