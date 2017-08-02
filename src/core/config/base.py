@@ -15,9 +15,8 @@ ADMINS = (
 MANAGERS = ADMINS
 
 # Aplicaciones
-VIEWFLOW_APPS = [
-    'material',
-    'material.admin'
+ADMIN_DASHBOARD = [
+
 ]
 
 DJANGO_APPS = [
@@ -42,7 +41,7 @@ LOCAL_APPS = [
     'apps.blog.config.BlogConfig'
 ]
 
-INSTALLED_APPS = VIEWFLOW_APPS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = ADMIN_DASHBOARD + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -100,7 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-LANGUAGE_CODE = 'es-mx'
+LANGUAGE_CODE = 'es'
 TIME_ZONE = 'Mexico/General'
 USE_I18N = True
 USE_L10N = True

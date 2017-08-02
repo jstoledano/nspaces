@@ -1,7 +1,6 @@
 certifi==2017.7.27.1
 chardet==3.0.4
-Django==1.11.3
-django-admin-tools==0.8.1
+Django==1.11.4
 django-authtools==1.6.0
 django-classy-tags==0.8.0
 django-environ==0.4.3
@@ -21,4 +20,3 @@ Unipath==1.1
 urllib3==1.22
 django-constance
 django-cors-middleware
-django-material
