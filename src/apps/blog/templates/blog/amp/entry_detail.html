@@ -35,7 +35,7 @@
           <!-- Start byline -->
           <address class="ampstart-byline clearfix mb4 px3 h5">
             <time class="ampstart-byline-pubdate block bold my1" datetime="{{ article.pub_date|date:'c' }}">{{ article.pub_date|date:'F j \d\e Y' }}</time>
-            <small class="ahora-con-amp">versión ⚡amp &mdash; <a href="{% url 'entry_detail' cat=article.category.slug slug=article.slug %}">versión 🖥escritorio</a></small>
+            <small class="ahora-con-amp">versión ⚡️amp &mdash; <a href="{% url 'entry_detail' cat=article.category.slug slug=article.slug %}">versión 🖥escritorio</a></small>
           </address>
           <!-- End byline -->
           {% if article.cover %}
