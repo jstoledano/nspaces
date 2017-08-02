@@ -15,6 +15,7 @@ class UserAdmin(NamedUserAdmin):
     inlines = (ProfileInline, )
     list_display = ('get_slug', 'email', 'name', 'is_staff', 'get_location')
     list_select_related = ('profile',)
+    icon = '<i class="material-icons">face</i>'
 
     def get_inline_instances(self, request, obj=None):
         if not obj:
