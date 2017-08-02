@@ -3,7 +3,7 @@
   <meta itemprop="name" content="{{ article.title|striptags }}">
   <meta itemprop="url" content="{{ config.SITEURL }}{{ article.get_absolute_url }}">
   <meta itemprop="headline" content="{{ article.title|striptags }} || {{ config.SITENAME }} || {{ config.TAGLINE }}">
-  <meta itemprop="description about" content="{% if article.summary %}{{ article.summary|striptags }}{% else %}{{ article.content|striptags|truncatechars:260 }}{% endif %}">
+  <meta itemprop="description" content="{% if article.summary %}{{ article.summary|striptags }}{% else %}{{ article.content|striptags|truncatechars:260 }}{% endif %}">
   <meta itemprop="keywords" content="{% if article.category %} {{ article.category.slug }}{% endif %}{% for tag in article.tags.all %} {{ tag.slug }}{% endfor %}">
   <meta itemprop="primaryImageOfPage" content="{% if article.cover %}{{ article.cover }}{% else %}{{ config.ARTICLE_COVER }}{% endif %}">
   <meta itemprop="inLanguage" content="{{ config.SITE_LANG_ALTERNATE }}">
@@ -11,7 +11,7 @@
   <meta itemprop="name" content="{{ config.SITENAME }}">
   <meta itemprop="url" content="{{ config.SITEURL }}">
   <meta itemprop="headline" content="{{ config.SITENAME }} || {{ config.TAGLINE }}">
-  <meta itemprop="description about" content="{{ config.TAGLINE }}">
+  <meta itemprop="description" content="{{ config.TAGLINE }}">
   <meta itemprop="keywords" content="gnu, linux, software libre, código abierto, tecnología">
   <meta itemprop="primaryImageOfPage" content="{{ config.ARTICLE_COVER }}">
   <meta itemprop="inLanguage" content="{{ config.SITE_LANG_ALTERNATE }}">
