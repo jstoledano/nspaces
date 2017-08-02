@@ -1,27 +1,25 @@
 <div id="disqus_thread"></div>
 <script>
-window.addEventListener('message', receiveMessage, false);
-function receiveMessage(event)
-{
+  window.addEventListener('message', receiveMessage, false);
+  function receiveMessage(event) {
     if (event.data) {
-        var msg;
-        try {
-            msg = JSON.parse(event.data);
-        } catch (err) {
-            // Do nothing
-        }
-        if (!msg)
-            return false;
+      var msg;
+      try {
+        msg = JSON.parse(event.data);
+      } catch (err) {
+        // Do nothing
+      }
+      if (!msg) return false;
 
-        if (msg.name === 'resize') {
-            window.parent.postMessage({
-              sentinel: 'amp',
-              type: 'embed-size',
-              height: msg.data.height
-            }, '*');
-        }
+      if (msg.name === 'resize') {
+        window.parent.postMessage({
+          sentinel: 'amp',
+          type: 'embed-size',
+          height: msg.data.height
+        }, '*');
+      }
     }
-}
+  }
 </script>
 <script>
   console.log(`nspaces: ${window.parent.document.getElementById('content').attributes["data-idx"].value}`)

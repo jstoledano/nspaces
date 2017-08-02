@@ -41,6 +41,7 @@
 {%block metagoogle%}
   <!-- BEGIN metagoogle -->
   <link rel="canonical" href="{{ config.SITEURL }}{{ article.get_absolute_url }}">
+
   <!-- END metagoogle -->
 {%endblock metagoogle%}
 
@@ -58,7 +59,7 @@
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "publisher": "Yo, Toledano",
     "author": {
       "@type": "Person",
@@ -116,7 +117,7 @@
     </section>
     <footer class="post-footer">
       <figure class="author-image">
-        <a class="img" href="{{ config.SITEURL }}" style="background-image: url('{{ config.PROFILE_IMAGE_URL }}')"><span class="hidden">{{ article.autor }}'s Picture</span></a>
+        <a class="img" href="{{ config.SITEURL }}" style="background-image: url('{{ config.PROFILE_IMAGE_URL }}')"><span class="hidden">{{ article.autor.name }}'s Picture</span></a>
       </figure>
       <section class="author">
         <h4>
