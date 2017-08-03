@@ -33,6 +33,7 @@ THIRD_PARTY_APPS = [
     'authtools',
     'taggit',
     'taggit_templatetags2',
+    'taggit_autosuggest',
     'constance',
     'corsheaders',
     'draceditor'

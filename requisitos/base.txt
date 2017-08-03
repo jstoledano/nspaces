@@ -22,3 +22,4 @@ django-constance
 django-cors-middleware
 django-flat-responsive
 draceditor
+django-taggit-autosuggest
