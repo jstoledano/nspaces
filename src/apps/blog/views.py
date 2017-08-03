@@ -9,6 +9,7 @@
 from functools import wraps
 
 from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.contrib.sitemaps import Sitemap
 from django.contrib.syndication.views import Feed
@@ -123,12 +124,16 @@ class CategoryDetail(ListView, CacheMixin):
         self.cat = ''
         super().__init__(**kwargs)
 
+    def get(self, *args, **kwargs):
+        if 'slug' in self.kwargs:
+            try:
+                entry = Entry.objects.get(slug=self.kwargs['slug'])
+                return redirect(entry)
+            except ObjectDoesNotExist:
+                pass
+        return super(CategoryDetail, self).get(*args, **kwargs)
+
     def get_queryset(self):
-        try:
-            entry = Entry.objects.get(slug=self.kwargs['slug'])
-            return redirect('entry_detail', cat=entry.category, slug=entry.slug)
-        except Entry.DoesNotExist:
-            pass
         self.cat = get_object_or_404(Category, slug=self.kwargs['slug'])
         return Entry.objects.filter(
             category=self.cat, status=Entry.LIVE_STATUS).select_related() \
