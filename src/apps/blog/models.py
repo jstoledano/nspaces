@@ -9,15 +9,15 @@
 import datetime
 import uuid
 
-from draceditor.models import DraceditorField
-
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import truncatechars_html, striptags, safe
 from django.db import models
 
 import markdown
-from taggit.managers import TaggableManager
+from draceditor.models import DraceditorField
+# from taggit.managers import TaggableManager
+from taggit_autosuggest.managers import TaggableManager
 
 MD_EXT = [
     'markdown.extensions.codehilite',
