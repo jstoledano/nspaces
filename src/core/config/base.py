@@ -27,7 +27,8 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
-    'django.contrib.sites'
+    'django.contrib.sites',
+    'django.contrib.flatpages'
 ]
 THIRD_PARTY_APPS = [
     'authtools',
@@ -36,7 +37,8 @@ THIRD_PARTY_APPS = [
     'taggit_autosuggest',
     'constance',
     'corsheaders',
-    'draceditor'
+    'draceditor',
+    'tinymce',
 ]
 LOCAL_APPS = [
     'apps.profiles.config.UsersConfig',
@@ -54,6 +56,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
@@ -137,7 +140,7 @@ DRACEDITOR_ENABLE_CONFIGS = {
 DRACEDITOR_IMGUR_CLIENT_ID = env('DRACEDITOR_IMGUR_CLIENT_ID')
 DRACEDITOR_IMGUR_API_KEY = env('DRACEDITOR_IMGUR_API_KEY')
 
-
+FLATPAGES_TEMPLATE_DIR = 'flatpages'
 
 CONSTANCE_IGNORE_ADMIN_VERSION_CHECK = True
 CONSTANCE_CONFIG = {
