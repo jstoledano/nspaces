@@ -14,6 +14,7 @@ from django.contrib.sitemaps import Sitemap
 from django.contrib.syndication.views import Feed
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.utils.decorators import available_attrs
 # from django.utils.decorators import method_decorator
 from django.views.generic import ListView
@@ -123,6 +124,11 @@ class CategoryDetail(ListView, CacheMixin):
         super().__init__(**kwargs)
 
     def get_queryset(self):
+        try:
+            entry = Entry.objects.get(slug=self.kwargs['slug'])
+            return redirect('entry_detail', cat=entry.category, slug=entry.slug)
+        except Entry.DoesNotExist:
+            pass
         self.cat = get_object_or_404(Category, slug=self.kwargs['slug'])
         return Entry.objects.filter(
             category=self.cat, status=Entry.LIVE_STATUS).select_related() \
