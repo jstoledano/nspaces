@@ -9,7 +9,7 @@ handler500 = 'apps.blog.views.error500'
 
 urlpatterns = [
     url(r'^policy/$', views.flatpage, {'url': '/policy/'}, name='policy'),
-    url(r'^p/', include('django.contrib.flatpages.urls')),
+    url(r'^contacto/$', views.flatpage, {'url': '/contacto/'}, name='contacto'),
     url(r'^admin/', admin.site.urls),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^draceditor/', include('draceditor.urls')),
