@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% block header_type %}tag-head{% endblock %}
+{% block scroll %}{% endblock %}
+{% block template_type %}tag-template{% endblock %}
+
+
+{% block title %}{{ flatpage.title }} - {{ config.SITENAME }}{% endblock title %}
+{#{% block meta_description %}En esta página se encuentran todas las etiquetas usadas en el blog. Como un índice.{% endblock meta_description %}#}
+
+
+{% block header_title %}
+  <h1 class="page-title" itemprop="headline"><i class="fa fa-file-text-o"></i> {{ flatpage.title }}</h1>
+{#  <h2 class="page-description" itemprop="description">Etiquetas usadas en {{ config.SITENAME }}</h2>#}
+{% endblock %}
+
+{% block content %}
+<main id="content" class="content" role="main" itemprop="mainContentOfPage" itemscope="" itemtype="http://schema.org/Blog">
+  <article class="post">
+    {{ flatpage.content }}
+  </article>
+</main>
+{% endblock content %}
