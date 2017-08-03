@@ -1,6 +1,6 @@
 certifi==2017.7.27.1
 chardet==3.0.4
-Django==1.11.5
+Django
 django-authtools==1.6.0
 django-classy-tags==0.8.0
 django-environ==0.4.3
