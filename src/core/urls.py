@@ -1,12 +1,14 @@
+from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.conf import settings
+from django.contrib.flatpages import views
 
 handler400 = 'apps.blog.views.error500'
 handler404 = 'apps.blog.views.error404'
 handler500 = 'apps.blog.views.error500'
 
 urlpatterns = [
+    url(r'^policy/$', views.flatpage, {'url': '/policy/'}, name='policy'),
     url(r'^p/', include('django.contrib.flatpages.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^tinymce/', include('tinymce.urls')),
