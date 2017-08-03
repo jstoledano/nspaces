@@ -24,9 +24,6 @@ class EntryAdmin(admin.ModelAdmin):     # pylint: disable=R0904
     list_filter = ('category', 'status')
     list_select_related = ('category',)
     icon = '<i class="material-icons">pages</i>'
-    formfield_overrides = {
-        models.TextField: {'widget': AdminDraceditorWidget},
-    }
 
     def save_model(self, request, obj, form, change):
         obj.autor = request.user
