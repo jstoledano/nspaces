@@ -103,7 +103,7 @@ class Entry(Trazabilidad):
     # Campos principales
     title = models.CharField('Título', max_length=250)
     summary = models.TextField('Resumen', blank=True)
-    body = models.TextField('Contenido')
+    body = DraceditorField('Contenido')
     extend = models.TextField('Extendido', blank=True)
     pub_date = models.DateTimeField(default=datetime.datetime.now)
 
