@@ -21,3 +21,4 @@ urllib3==1.22
 django-constance
 django-cors-middleware
 django-flat-responsive
+draceditor

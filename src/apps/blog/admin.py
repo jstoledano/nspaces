@@ -6,12 +6,14 @@
 #       autor: Javier Sanchez Toledano
 #       fecha: sábado, 29 de agosto de 2015
 
+from draceditor.widgets import AdminDraceditorWidget
 
 # Modulo de administración
 from django.contrib import admin
+from django.db import models
 
 # Módulos de la aplicación
-from .models import Entry, Category
+from apps.blog.models import Entry, Category
 
 
 class EntryAdmin(admin.ModelAdmin):     # pylint: disable=R0904

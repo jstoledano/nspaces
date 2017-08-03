@@ -34,7 +34,8 @@ THIRD_PARTY_APPS = [
     'taggit',
     'taggit_templatetags2',
     'constance',
-    'corsheaders'
+    'corsheaders',
+    'draceditor'
 ]
 LOCAL_APPS = [
     'apps.profiles.config.UsersConfig',
@@ -127,7 +128,15 @@ TAGGIT_LIMIT = 200
 
 CORS_ORIGIN_REGEX_WHITELIST = (r'https?://(localhost|127\.0\.0\.1|.*\.toledano\.org)(:[0-9]+)?', )
 
-GRAPPELLI_ADMIN_TITLE = 'Yo, Toledano'
+DRACEDITOR_ENABLE_CONFIGS = {
+    'imgur': 'true',
+    'mention': 'false',
+    'jquery': 'true',
+}
+DRACEDITOR_IMGUR_CLIENT_ID = env('DRACEDITOR_IMGUR_CLIENT_ID')
+DRACEDITOR_IMGUR_API_KEY = env('DRACEDITOR_IMGUR_API_KEY')
+
+
 
 CONSTANCE_IGNORE_ADMIN_VERSION_CHECK = True
 CONSTANCE_CONFIG = {
