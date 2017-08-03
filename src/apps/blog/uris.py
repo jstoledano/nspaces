@@ -54,7 +54,7 @@ urlpatterns = [
     url(r'^(?P<slug>[-\w]+)/amp/$', CategoryDetail.as_view(), name="amp_cat_detail"),
     url(r'^(?P<slug>[-\w]+)/$', CategoryDetail.as_view(), name="cat_detail"),
 
-    # Esta es la última entrada porque captura todo
+    # Esta es la última entrada porque captura everything
     url(r'^(?P<cat>[-\w]+)/(?P<slug>[-\w]+)/amp/$', EntryDetail.as_view(), name="amp_entry_detail"),
     url(r'^(?P<cat>[-\w]+)/(?P<slug>[-\w]+)/$', EntryDetail.as_view(), name="entry_detail"),
 ]

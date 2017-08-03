@@ -15,7 +15,7 @@ from django.contrib.syndication.views import Feed
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.utils.decorators import available_attrs
-from django.utils.decorators import method_decorator
+# from django.utils.decorators import method_decorator
 from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
@@ -95,13 +95,6 @@ class EntryDetail(DetailView, CacheMixin):
     cache_timeout = CACHE_TTL
     model = Entry
     context_object_name = 'article'
-
-    def get(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        context = self.get_context_data(object=self.object)
-        context['Access-Control-Allow-Origin'] = 'http://yo.toledano.org'
-        context['X-Powered-By'] = 'nSpaces & Django'
-        return self.render_to_response(context)
 
     def get_template_names(self):
         return ['%s/entry_detail.html' % ('blog/amp' if self.request.es_amp else 'blog')]

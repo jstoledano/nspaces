@@ -16,7 +16,6 @@ from django.db import models
 
 import markdown
 from draceditor.models import DraceditorField
-# from taggit.managers import TaggableManager
 from taggit_autosuggest.managers import TaggableManager
 
 MD_EXT = [
