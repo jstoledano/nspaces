@@ -9,6 +9,7 @@ handler500 = 'apps.blog.views.error500'
 urlpatterns = [
     url(r'^p/', include('django.contrib.flatpages.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^tinymce/', include('tinymce.urls')),
     url(r'^draceditor/', include('draceditor.urls')),
     url(r'^taggit_autosuggest/', include('taggit_autosuggest.urls')),
     url(r'^accounts/', include('authtools.urls')),

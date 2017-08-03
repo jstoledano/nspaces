@@ -37,7 +37,8 @@ THIRD_PARTY_APPS = [
     'taggit_autosuggest',
     'constance',
     'corsheaders',
-    'draceditor'
+    'draceditor',
+    'tinymce',
 ]
 LOCAL_APPS = [
     'apps.profiles.config.UsersConfig',
@@ -139,7 +140,7 @@ DRACEDITOR_ENABLE_CONFIGS = {
 DRACEDITOR_IMGUR_CLIENT_ID = env('DRACEDITOR_IMGUR_CLIENT_ID')
 DRACEDITOR_IMGUR_API_KEY = env('DRACEDITOR_IMGUR_API_KEY')
 
-
+FLATPAGES_TEMPLATE_DIR = 'flatpages'
 
 CONSTANCE_IGNORE_ADMIN_VERSION_CHECK = True
 CONSTANCE_CONFIG = {
