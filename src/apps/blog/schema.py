@@ -25,6 +25,7 @@ class CategoryNode(DjangoObjectType):
 
 class EntryNode(DjangoObjectType):
     tags = graphene.List(source='get_tags', of_type=graphene.String)
+    status = graphene.Int(source='get_status')
 
     class Meta:
         model = Entry
@@ -34,7 +35,6 @@ class EntryNode(DjangoObjectType):
             'category': ['exact', ],
         }
         interfaces = (relay.Node, )
-        # only_fields = ('title', 'tags', 'pub_date', 'body', 'category')
 
 
 class Query(AbstractType):

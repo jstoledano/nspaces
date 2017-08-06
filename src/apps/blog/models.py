@@ -183,6 +183,9 @@ class Entry(Trazabilidad):
             tags.append(str(tag))
         return tags
 
+    def get_status(self):
+        return f'{self.status}'
+
     def siguiente(self):
         try:
             return self.get_next_by_pub_date()
