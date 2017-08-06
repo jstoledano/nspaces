@@ -31,7 +31,7 @@ class EntryNode(DjangoObjectType):
         filter_fields = {
             'title': ['exact', 'icontains', 'istartswith'],
             'body': ['icontains', ],
-            'category': ['exact'],
+            'category': ['exact', ],
         }
         interfaces = (relay.Node, )
         # only_fields = ('title', 'tags', 'pub_date', 'body', 'category')
