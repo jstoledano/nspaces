@@ -19,7 +19,7 @@ from apps.blog.models import Category
 class CategoryNode(DjangoObjectType):
     class Meta:
         model = Category
-        filter_fields = ['title', 'ingredients']
+        filter_fields = ['title', ]
         interfaces = (relay.Node, )
 
 
@@ -27,12 +27,12 @@ class EntryNode(DjangoObjectType):
     class Meta:
         model = Entry
         filter_fields = {
-            'title': ['exact', 'icontains', 'istartwith'],
+            'title': ['exact', 'icontains', 'istartswith'],
             'body': ['icontains', ],
             'category': ['exact'],
-            'category__name': ['exact']
         }
         interfaces = (relay.Node, )
+        only_fields = ('title', 'pub_date', 'body', 'category')
 
 
 class Query(AbstractType):
