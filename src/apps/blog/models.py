@@ -177,6 +177,12 @@ class Entry(Trazabilidad):
             kwargs={'cat': self.category.slug, 'slug': self.slug}
         )
 
+    def get_tags(self):
+        tags = []
+        for tag in self.tags.all():
+            tags.append(str(tag))
+        return tags
+
     def siguiente(self):
         try:
             return self.get_next_by_pub_date()

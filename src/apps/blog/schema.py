@@ -5,17 +5,17 @@
 # descripción: Esquemas de GraphQL para el blog
 #       autor: Javier Sanchez Toledano
 #       fecha: sábado, 5 de agosto de 2017
-
+import graphene
 from graphene import relay, AbstractType       # , ObjectType
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
+from graphene_django.debug import DjangoDebug
+
 
 from apps.blog.models import Entry
 from apps.blog.models import Category
 
 
-# Graphene will automatically map the Category model's fields onto the CategoryNode.
-# This is configured in the CategoryNode's Meta class (as you can see below)
 class CategoryNode(DjangoObjectType):
     class Meta:
         model = Category
@@ -24,6 +24,8 @@ class CategoryNode(DjangoObjectType):
 
 
 class EntryNode(DjangoObjectType):
+    tags = graphene.List(source='get_tags', of_type=graphene.String)
+
     class Meta:
         model = Entry
         filter_fields = {
@@ -32,10 +34,12 @@ class EntryNode(DjangoObjectType):
             'category': ['exact'],
         }
         interfaces = (relay.Node, )
-        only_fields = ('title', 'pub_date', 'body', 'category')
+        # only_fields = ('title', 'tags', 'pub_date', 'body', 'category')
 
 
 class Query(AbstractType):
+    debug = graphene.Field(DjangoDebug, name='__debug')
+
     category = relay.Node.Field(CategoryNode)
     all_categories = DjangoFilterConnectionField(CategoryNode)
 
