@@ -184,7 +184,10 @@ class Entry(Trazabilidad):
         return tags
 
     def get_status(self):
-        return f'{self.status}'
+        return self.status
+
+    def get_autor(self):
+        return self.autor
 
     def siguiente(self):
         try:
