@@ -39,6 +39,7 @@ THIRD_PARTY_APPS = [
     'corsheaders',
     'draceditor',
     'tinymce',
+    'graphene_django'
 ]
 LOCAL_APPS = [
     'apps.profiles.config.UsersConfig',
@@ -125,6 +126,10 @@ MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'profiles.User'
 SITE_ID = '1'
+
+GRAPHENE = {
+    'SCHEMA': 'core.schema.grafo'
+}
 
 TAGGIT_TAGCLOUD_MIN = 1
 TAGGIT_TAGCLOUD_MAX = 6
