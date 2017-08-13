@@ -24,3 +24,4 @@ django-flat-responsive
 draceditor
 django-taggit-autosuggest
 django-tinymce
+graphene_django
