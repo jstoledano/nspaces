@@ -112,8 +112,10 @@
       </section>
     </header>
     <section class="post-content">
+      {% include "blog/partials/_facebook_like.html" %}
       {{ article.body_html|safe }}
       {{ article.extend_html|safe }}
+      {% include "blog/partials/_facebook_like.html" %}
     </section>
     <footer class="post-footer">
       <figure class="author-image">
@@ -150,6 +152,7 @@
           </span>
         </a>
       </section>
+      {% include 'blog/partials/_facebook_page.html' %}
       {% include 'blog/partials/_search.html' %}
       <!-- Comentarios: {{ article.enable_comments }} -->
       {% if article.enable_comments %}
